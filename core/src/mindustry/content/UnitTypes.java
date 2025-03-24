@@ -594,7 +594,6 @@ public class UnitTypes{
                     smokeEffect = Fx.shootBig2;
                     damage = 60;
                     pierceDamageFactor = 0.2f;
-                    lightningSpacing = 35f;
                     lightningLength = 5;
                     lightningDamage = 50;
                     lightColor = lightningColor = Pal.heal;
