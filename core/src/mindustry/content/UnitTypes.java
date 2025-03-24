@@ -537,33 +537,34 @@ public class UnitTypes{
             health = 18000f;
             armor = 9f;
             stepShake = 1.5f;
-            rotateSpeed = 0.8f;
+            rotateSpeed = 0.7f;
             drownTimeMultiplier = 6f;
             riseSpeed = 0.04f;
             canBoost = true;
             mechLandShake = 6f;
             engineOffset = 18f;
             engineSize = 8f;
-            lowAltitude = true;
             speed = 0.08f;
-            boostMultiplier = 7f;
+            boostMultiplier = 5f;
             legCount = 4;
-            legLength = 10f;
+            legLength = 7.5f;
             legBaseOffset = 11f;
-            legMoveSpace = 1.2f;
-            legForwardScl = 0.4f;
+            legMoveSpace = 0.9f;
+            legForwardScl = 0.5f;
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.laserbeam;
+                shootSound = Sounds.none;
+                loopSoundVolume = 1f;
+                loopSound = Sounds.laserbeam;
                 chargeSound = Sounds.lasercharge;
                 soundPitchMin = 1f;
                 top = false;
                 mirror = false;
-                shake = 14f;
+                shake = 2f;
                 shootY = 5f;
                 x = y = 0;
                 reload = 350f;
@@ -577,7 +578,7 @@ public class UnitTypes{
                 bullet = new RailBulletType(){{
                     shootEffect = Fx.railShoot;
                     length = 390;
-                    pointEffectSpace = 35f;
+                    pointEffectSpace = 31f;
                     pierceEffect = new Effect(18f, 200f, e -> {
                         color(Pal.heal);
                         for(int i : Mathf.signs){
@@ -593,8 +594,8 @@ public class UnitTypes{
                     });
                     hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
-                    damage = 100;
-                    pierceDamageFactor = 0.5f;
+                    damage = 160;
+                    pierceDamageFactor = 0.2f;
                     lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
