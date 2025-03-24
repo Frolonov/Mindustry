@@ -32,13 +32,13 @@ public class UnitTypes{
     //region standard
 
     //mech
-    public static @EntityDef({Unitc.class, Mechc.class}) UnitType mace, dagger, crawler, fortress, scepter, reign, vela, corvus;
+    public static @EntityDef({Unitc.class, Mechc.class}) UnitType mace, dagger, crawler, fortress, scepter, reign, vela;
 
     //mech, legacy
     public static @EntityDef(value = {Unitc.class, Mechc.class}, legacy = true) UnitType nova, pulsar, quasar;
 
     //legs
-    public static @EntityDef({Unitc.class, Legsc.class}) UnitType atrax,
+    public static @EntityDef({Unitc.class, Legsc.class}) UnitType corvus, atrax,
     merui, cleroi, anthicus,
     tecta, collaris;
 
@@ -536,29 +536,27 @@ public class UnitTypes{
             hitSize = 29f;
             health = 18000f;
             armor = 9f;
-            //stepShake = 1.5f;
             rotateSpeed = 0.7f;
             drownTimeMultiplier = 6f;
             riseSpeed = 0.04f;
             canBoost = true;
-            //lowAltitude = true;
-            //mechLandShake = 6f;
+            lowAltitude = true;
+            mechLandShake = 6f;
             engineOffset = 15f;
             engineSize = 8f;
-            speed = 0.08f;
-            boostMultiplier = 5f;
-            //stepShake = 0.2f;
-            //legCount = 4;
-            //legLength = 7.5f;
-            //legBaseOffset = 11f;
-            //legMoveSpace = 0.9f;
-            //legForwardScl = 0.5f;
-            //hovering = true;
-            //shadowElevation = 0.2f;
-            //legPhysicsLayer = true;
+            speed = 0.24f;
+            boostMultiplier = 2f;
+            stepShake = 0.2f;
+            legCount = 4;
+            legLength = 7.5f;
+            legBaseOffset = 11f;
+            legMoveSpace = 0.9f;
+            legForwardScl = 0.5f;
+            hovering = true;
+            shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
-            //groundLayer = Layer.legUnit;
-            //drawShields = false;
+            groundLayer = Layer.legUnit;
+            drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.dullExplosion;
                 chargeSound = Sounds.lasercharge;
