@@ -554,17 +554,15 @@ public class UnitTypes{
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
-            groundLayer = Layer.legUnit;
+            groundLayer = Layer.legUnit - 1f;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.none;
-                loopSoundVolume = 1f;
-                loopSound = Sounds.laserbeam;
+                shootSound = Sounds.dullExplosion;
                 chargeSound = Sounds.lasercharge;
                 soundPitchMin = 1f;
                 top = false;
                 mirror = false;
-                shake = 2f;
+                shake = 1f;
                 shootY = 5f;
                 x = y = 0;
                 reload = 350f;
@@ -576,8 +574,7 @@ public class UnitTypes{
                 parentizeEffects = true;
 
                 bullet = new RailBulletType(){{
-                    shootEffect = Fx.railShoot;
-                    length = 390;
+                    length = 380;
                     pointEffectSpace = 31f;
                     pierceEffect = new Effect(18f, 200f, e -> {
                         color(Pal.heal);
@@ -594,13 +591,15 @@ public class UnitTypes{
                     });
                     hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
-                    damage = 160;
+                    damage = 90;
                     pierceDamageFactor = 0.2f;
                     lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
                     collidesTeam = true;
                     hitColor = Pal.heal;
+                    status = StatusEffects.electrified;
+                    statusDuration = 60f * 10;
                 }};
             }});
         }};
