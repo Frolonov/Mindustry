@@ -536,68 +536,94 @@ public class UnitTypes{
             hitSize = 29f;
             health = 18000f;
             armor = 9f;
-            stepShake = 1.5f;
-            rotateSpeed = 1.5f;
+            rotateSpeed = 0.7f;
             drownTimeMultiplier = 6f;
-
+            riseSpeed = 0.04f;
+            canBoost = true;
+            lowAltitude = true;
+            mechLandShake = 6f;
+            engineOffset = 15f;
+            engineSize = 8f;
+            speed = 0.24f;
+            boostMultiplier = 2f;
+            stepShake = 0.2f;
             legCount = 4;
-            legLength = 14f;
+            legLength = 7.5f;
             legBaseOffset = 11f;
-            legMoveSpace = 1.5f;
-            legForwardScl = 0.58f;
+            legMoveSpace = 0.9f;
+            legForwardScl = 0.5f;
+            allowLegStep = true;
+            legPhysicsLayer = true;
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
-
-            speed = 0.3f;
-
             drawShields = false;
-
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.laserblast;
+                shootSound = Sounds.dullExplosion;
                 chargeSound = Sounds.lasercharge;
                 soundPitchMin = 1f;
                 top = false;
                 mirror = false;
-                shake = 14f;
+                shake = 1f;
                 shootY = 5f;
                 x = y = 0;
                 reload = 350f;
                 recoil = 0f;
-
                 cooldownTime = 350f;
-
-                shootStatusDuration = 60f * 2f;
-                shootStatus = StatusEffects.unmoving;
-                shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
+                //shoot.shots = 50;
+                //shoot.shotDelay = 3f;
+                //shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
-                bullet = new LaserBulletType(){{
-                    length = 460f;
-                    damage = 560f;
-                    width = 75f;
-
-                    lifetime = 65f;
-
-                    lightningSpacing = 35f;
-                    lightningLength = 5;
-                    lightningDelay = 1.1f;
-                    lightningLengthRand = 15;
-                    lightningDamage = 50;
-                    lightningAngleRand = 40f;
-                    largeHit = true;
-                    lightColor = lightningColor = Pal.heal;
-
+                bullet = new BasicBulletType(24f, 50f){{
+                    width = 12f;
+                    height = 30f;
+                    lifetime = 16f;
+                    velocityRnd = 0.07f;
+                    shoot = new ShootHelix(){{
+                        mag = 9.1f;
+                        scl = 0.47f;
+                        shots = 50;
+                        shotDelay = 5f;
+                        firstShotDelay = Fx.greenLaserCharge.lifetime;
+                    }};
+                    reflectable = false;
+                    hittable = false;
+                    hitEffect = Fx.massiveExplosion;
+                    smokeEffect = Fx.shootBig2;
+                    backColor = hitColor = Pal.heal;
+                    frontColor = Color.white;
+                    shrinkX = shrinkY = 0f;
+                    lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
-
                     healPercent = 25f;
                     collidesTeam = true;
-
-                    sideAngle = 15f;
-                    sideWidth = 0f;
-                    sideLength = 0f;
-                    colors = new Color[]{Pal.heal.cpy().a(0.4f), Pal.heal, Color.white};
+                    lightning = 1;
+                    lightningLength = 12;
+                    lightningColor = Pal.heal;
+                    lightningCone = 30f;
+                    lightningDamage = 40f;
+                    status = StatusEffects.electrified;
+                    statusDuration = 60f * 10;
+                    intervalBullet = new LaserBoltBulletType(4f, 40f){{
+                        width = 3f;
+                        height = 5f;
+                        pierceArmor = true;
+                        reflectable = false;
+                        hittable = false;
+                        lifetime = 16f;
+                        healPercent = 25f;
+                        collidesTeam = true;
+                        hitColor = backColor = Pal.heal;
+                        frontColor = Color.white;
+                        homingPower = 0.2f;
+                    }};
+                    bulletInterval = 2f;
+                    intervalRandomSpread = 17f;
+                    intervalBullets = 2;
+                    intervalAngle = 180f;
+                    intervalSpread = 270f;
                 }};
             }});
         }};
