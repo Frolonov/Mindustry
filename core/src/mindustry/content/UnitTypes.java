@@ -543,11 +543,12 @@ public class UnitTypes{
             canBoost = true;
             lowAltitude = true;
             mechLandShake = 6f;
-            engineOffset = 18f;
+            engineOffset = 15f;
             engineSize = 8f;
             speed = 0.08f;
             boostMultiplier = 5f;
             mechFrontSway = 1.3f;
+            mechSideSway = 1.1f;
             mechStepParticles = true;
             stepShake = 0.2f;
             //legCount = 4;
@@ -555,8 +556,8 @@ public class UnitTypes{
             //legBaseOffset = 11f;
             //legMoveSpace = 0.9f;
             //legForwardScl = 0.5f;
-            hovering = true;
-            shadowElevation = 0.2f;
+            //hovering = true;
+            //shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
             //groundLayer = Layer.legUnit - 1f;
             drawShields = false;
@@ -582,10 +583,10 @@ public class UnitTypes{
                     height = 30f;
                     lifetime = 16f;
                     shoot = new ShootHelix(){{
-                        mag = 1f;
-                        scl = 5f;
+                        mag = 2f;
+                        scl = 1.2f;
                         shots = 50;
-                        shotDelay = 3f;
+                        shotDelay = 4f;
                         firstShotDelay = Fx.greenLaserCharge.lifetime;
                     }};
                     reflectable = false;
@@ -609,13 +610,13 @@ public class UnitTypes{
                     lightningDamage = 40f;
                     status = StatusEffects.electrified;
                     statusDuration = 60f * 10;
-                    intervalBullet = new LaserBoltBulletType(4f, 20f){{
-                        width = 9f;
-                        height = 12f;
+                    intervalBullet = new LaserBoltBulletType(4f, 40f){{
+                        width = 5f;
+                        height = 8f;
                         pierceArmor = true;
                         reflectable = false;
                         hittable = false;
-                        lifetime = 14f;
+                        lifetime = 7f;
                         healPercent = 25f;
                         collidesTeam = true;
                         hitColor = backColor = trailColor = Pal.heal;
@@ -626,7 +627,7 @@ public class UnitTypes{
                     }};
                     bulletInterval = 1f;
                     intervalRandomSpread = 0f;
-                    intervalBullets = 2;
+                    intervalBullets = 1;
                     intervalAngle = 180f;
                     intervalSpread = 240f;
                 }};
