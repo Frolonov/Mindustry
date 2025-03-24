@@ -541,12 +541,13 @@ public class UnitTypes{
             drownTimeMultiplier = 6f;
             riseSpeed = 0.04f;
             canBoost = true;
+            lowAltitude = true;
             mechLandShake = 6f;
             engineOffset = 18f;
             engineSize = 8f;
             speed = 0.08f;
             boostMultiplier = 5f;
-            mechFrontSway = 1.1f;
+            mechFrontSway = 1.3f;
             mechStepParticles = true;
             stepShake = 0.2f;
             //legCount = 4;
@@ -557,7 +558,7 @@ public class UnitTypes{
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
-            groundLayer = Layer.legUnit - 1f;
+            //groundLayer = Layer.legUnit - 1f;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.dullExplosion;
@@ -571,9 +572,9 @@ public class UnitTypes{
                 reload = 350f;
                 recoil = 0f;
                 cooldownTime = 350f;
-                shoot.shots = 50;
-                shoot.shotDelay = 3f;
-                shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
+                //shoot.shots = 50;
+                //shoot.shotDelay = 3f;
+                //shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
                 bullet = new BasicBulletType(24f, 50f){{
@@ -581,8 +582,11 @@ public class UnitTypes{
                     height = 30f;
                     lifetime = 16f;
                     shoot = new ShootHelix(){{
-                        mag = 3f;
-                        scl = 8f;
+                        mag = 1f;
+                        scl = 5f;
+                        shots = 50;
+                        shotDelay = 3f;
+                        firstShotDelay = Fx.greenLaserCharge.lifetime;
                     }};
                     reflectable = false;
                     hittable = false;
@@ -608,14 +612,12 @@ public class UnitTypes{
                     intervalBullet = new LaserBoltBulletType(4f, 20f){{
                         width = 9f;
                         height = 12f;
-                        pierce = true;
-                        pierceCap = 3;
+                        pierceArmor = true;
                         reflectable = false;
                         hittable = false;
                         lifetime = 14f;
                         healPercent = 25f;
                         collidesTeam = true;
-                        pierceBuilding = true;
                         hitColor = backColor = trailColor = Pal.heal;
                         frontColor = Color.white;
                         trailWidth = 2.1f;
