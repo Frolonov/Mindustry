@@ -539,25 +539,26 @@ public class UnitTypes{
             stepShake = 1.5f;
             rotateSpeed = 0.8f;
             drownTimeMultiplier = 6f;
-            riseSpeed = 0.02f;
+            riseSpeed = 0.04f;
             canBoost = true;
+            mechLandShake = 6f;
             engineOffset = 18f;
             engineSize = 8f;
             lowAltitude = true;
-            speed = 0.07f;
-            boostMultiplier = 8f;
+            speed = 0.08f;
+            boostMultiplier = 7f;
             legCount = 4;
-            legLength = 14f;
+            legLength = 10f;
             legBaseOffset = 11f;
-            legMoveSpace = 1.5f;
-            legForwardScl = 0.58f;
+            legMoveSpace = 1.2f;
+            legForwardScl = 0.4f;
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.laserblast;
+                shootSound = Sounds.laserbeam;
                 chargeSound = Sounds.lasercharge;
                 soundPitchMin = 1f;
                 top = false;
@@ -568,15 +569,15 @@ public class UnitTypes{
                 reload = 350f;
                 recoil = 0f;
                 cooldownTime = 350f;
-                shoot.shots = 12;
-                shoot.shotDelay = 5f;
+                shoot.shots = 50;
+                shoot.shotDelay = 3f;
                 shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
                 bullet = new RailBulletType(){{
                     shootEffect = Fx.railShoot;
-                    length = 380;
-                    pointEffectSpace = 60f;
+                    length = 390;
+                    pointEffectSpace = 35f;
                     pierceEffect = new Effect(18f, 200f, e -> {
                         color(Pal.heal);
                         for(int i : Mathf.signs){
@@ -592,11 +593,9 @@ public class UnitTypes{
                     });
                     hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
-                    damage = 60;
-                    pierceDamageFactor = 0.2f;
-                    lightningLength = 5;
-                    lightningDamage = 50;
-                    lightColor = lightningColor = Pal.heal;
+                    damage = 100;
+                    pierceDamageFactor = 0.5f;
+                    lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
                     collidesTeam = true;
