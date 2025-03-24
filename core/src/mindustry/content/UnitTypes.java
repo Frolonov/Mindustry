@@ -546,11 +546,14 @@ public class UnitTypes{
             engineSize = 8f;
             speed = 0.08f;
             boostMultiplier = 5f;
-            legCount = 4;
-            legLength = 7.5f;
-            legBaseOffset = 11f;
-            legMoveSpace = 0.9f;
-            legForwardScl = 0.5f;
+            mechFrontSway = 1.1f;
+            mechStepParticles = true;
+            stepShake = 0.2f;
+            //legCount = 4;
+            //legLength = 7.5f;
+            //legBaseOffset = 11f;
+            //legMoveSpace = 0.9f;
+            //legForwardScl = 0.5f;
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
@@ -573,33 +576,57 @@ public class UnitTypes{
                 shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
-                bullet = new RailBulletType(){{
-                    length = 380;
-                    pointEffectSpace = 31f;
-                    pierceEffect = new Effect(18f, 200f, e -> {
-                        color(Pal.heal);
-                        for(int i : Mathf.signs){
-                            Drawf.tri(e.x, e.y, 10f * e.fout(), 60f, e.rotation + 140f * i);
-                        }
-                    });
-                    pointEffect = new Effect(16f, e -> {
-                        color(Pal.heal);
-                        for(int i : Mathf.signs){
-                            Drawf.tri(e.x, e.y, 10f * e.fout(), 24f, e.rotation + 90 + 90f * i);
-                        }
-                         Drawf.light(e.x, e.y, 60f * e.fout(), Pal.heal, 0.5f);
-                    });
+                bullet = new BasicBulletType(24f, 50f){{
+                    width = 12f;
+                    height = 30f;
+                    lifetime = 16f;
+                    shoot = new ShootHelix(){{
+                        mag = 3f;
+                        scl = 8f;
+                    }};
+                    reflectable = false;
+                    hittable = false;
                     hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
-                    damage = 90;
-                    pierceDamageFactor = 0.2f;
-                    lightColor = Pal.heal;
+                    backColor = hitColor = Pal.heal;
+                    frontColor = Color.white;
+                    shrinkX = shrinkY = 0f;
+                    trailColor = lightColor = Pal.heal;
+                    trailEffect = Fx.missileTrail;
+                    trailInterval = 2f;
+                    trailParam = 4f;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
                     collidesTeam = true;
-                    hitColor = Pal.heal;
+                    lightning = 1;
+                    lightningLength = 12;
+                    lightningColor = Pal.heal;
+                    lightningCone = 30f;
+                    lightningDamage = 40f;
                     status = StatusEffects.electrified;
                     statusDuration = 60f * 10;
+                    intervalBullet = new LaserBoltBulletType(4f, 20f){{
+                        width = 9f;
+                        height = 12f;
+                        pierce = true;
+                        pierceCap = 3;
+                        reflectable = false;
+                        hittable = false;
+                        lifetime = 14f;
+                        healPercent = 25f;
+                        collidesTeam = true;
+                        pierceBuilding = true;
+                        hitColor = backColor = trailColor = Pal.heal;
+                        frontColor = Color.white;
+                        trailWidth = 2.1f;
+                        trailLength = 5;
+                        homingPower = 0.2f;
+                    }};
+                    bulletInterval = 1f;
+                    intervalRandomSpread = 0f;
+                    intervalBullets = 2;
+                    intervalAngle = 180f;
+                    intervalSpread = 240f;
                 }};
             }});
         }};
