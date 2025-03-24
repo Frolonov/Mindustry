@@ -32,13 +32,13 @@ public class UnitTypes{
     //region standard
 
     //mech
-    public static @EntityDef({Unitc.class, Mechc.class}) UnitType mace, dagger, crawler, fortress, scepter, reign, vela;
+    public static @EntityDef({Unitc.class, Mechc.class}) UnitType mace, dagger, crawler, fortress, scepter, reign, vela, corvus;
 
     //mech, legacy
     public static @EntityDef(value = {Unitc.class, Mechc.class}, legacy = true) UnitType nova, pulsar, quasar;
 
     //legs
-    public static @EntityDef({Unitc.class, Legsc.class}) UnitType corvus, atrax,
+    public static @EntityDef({Unitc.class, Legsc.class}) UnitType atrax,
     merui, cleroi, anthicus,
     tecta, collaris;
 
@@ -585,7 +585,7 @@ public class UnitTypes{
                         mag = 9.1f;
                         scl = 0.47f;
                         shots = 50;
-                        shotDelay = 3f;
+                        shotDelay = 5f;
                         firstShotDelay = Fx.greenLaserCharge.lifetime;
                     }};
                     reflectable = false;
@@ -607,8 +607,8 @@ public class UnitTypes{
                     status = StatusEffects.electrified;
                     statusDuration = 60f * 10;
                     intervalBullet = new LaserBoltBulletType(4f, 40f){{
-                        width = 5f;
-                        height = 8f;
+                        width = 3f;
+                        height = 5f;
                         pierceArmor = true;
                         reflectable = false;
                         hittable = false;
@@ -620,10 +620,10 @@ public class UnitTypes{
                         homingPower = 0.2f;
                     }};
                     bulletInterval = 2f;
-                    intervalRandomSpread = 9f;
+                    intervalRandomSpread = 17f;
                     intervalBullets = 2;
                     intervalAngle = 180f;
-                    intervalSpread = 240f;
+                    intervalSpread = 270f;
                 }};
             }});
         }};
