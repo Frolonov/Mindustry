@@ -537,9 +537,15 @@ public class UnitTypes{
             health = 18000f;
             armor = 9f;
             stepShake = 1.5f;
-            rotateSpeed = 1.5f;
+            rotateSpeed = 0.8f;
             drownTimeMultiplier = 6f;
-
+            riseSpeed = 0.02f;
+            canBoost = true;
+            engineOffset = 18f;
+            engineSize = 8f;
+            lowAltitude = true;
+            speed = 0.07f;
+            boostMultiplier = 8f;
             legCount = 4;
             legLength = 14f;
             legBaseOffset = 11f;
@@ -550,10 +556,7 @@ public class UnitTypes{
             ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
 
-            speed = 0.3f;
-
             drawShields = false;
-
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.laserblast;
                 chargeSound = Sounds.lasercharge;
@@ -568,17 +571,21 @@ public class UnitTypes{
 
                 cooldownTime = 350f;
 
-                shootStatusDuration = 60f * 2f;
-                shootStatus = StatusEffects.unmoving;
+                shoot.shots = 12;
+                shoot.shotDelay = 5f;
                 shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
-                bullet = new LaserBulletType(){{
-                    length = 460f;
-                    damage = 560f;
-                    width = 75f;
-
-                    lifetime = 65f;
+                bullet = new RailBulletType(){{
+                    shootEffect = Fx.railShoot;
+                    length = 380;
+                    pointEffectSpace = 60f;
+                    pierceEffect = Fx.railHit;
+                    pointEffect = Fx.railTrail;
+                    hitEffect = Fx.massiveExplosion;
+                    smokeEffect = Fx.shootBig2;
+                    damage = 60;
+                    pierceDamageFactor = 0.2f;
 
                     lightningSpacing = 35f;
                     lightningLength = 5;
@@ -586,18 +593,14 @@ public class UnitTypes{
                     lightningLengthRand = 15;
                     lightningDamage = 50;
                     lightningAngleRand = 40f;
-                    largeHit = true;
                     lightColor = lightningColor = Pal.heal;
 
                     chargeEffect = Fx.greenLaserCharge;
-
                     healPercent = 25f;
                     collidesTeam = true;
-
-                    sideAngle = 15f;
-                    sideWidth = 0f;
-                    sideLength = 0f;
-                    colors = new Color[]{Pal.heal.cpy().a(0.4f), Pal.heal, Color.white};
+                    backColor = Pal.heal;
+                    frontColor = Color.white;
+                    mixColorTo = Color.white;
                 }};
             }});
         }};
