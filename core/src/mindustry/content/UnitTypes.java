@@ -547,19 +547,17 @@ public class UnitTypes{
             engineSize = 8f;
             speed = 0.08f;
             boostMultiplier = 5f;
-            mechFrontSway = 1.3f;
-            mechSideSway = 1.1f;
-            mechStepParticles = true;
             stepShake = 0.2f;
-            //legCount = 4;
-            //legLength = 7.5f;
-            //legBaseOffset = 11f;
-            //legMoveSpace = 0.9f;
-            //legForwardScl = 0.5f;
-            //hovering = true;
-            //shadowElevation = 0.2f;
+            legCount = 4;
+            legLength = 7.5f;
+            legBaseOffset = 11f;
+            legMoveSpace = 0.9f;
+            legForwardScl = 0.5f;
+            hovering = true;
+            shadowElevation = 0.2f;
+            legPhysicsLayer = true;
             ammoType = new PowerAmmoType(4000);
-            //groundLayer = Layer.legUnit - 1f;
+            //groundLayer = Layer.legUnit;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.dullExplosion;
@@ -583,10 +581,10 @@ public class UnitTypes{
                     height = 30f;
                     lifetime = 16f;
                     shoot = new ShootHelix(){{
-                        mag = 2f;
-                        scl = 1.2f;
+                        mag = 7f;
+                        scl = 0.69f;
                         shots = 50;
-                        shotDelay = 4f;
+                        shotDelay = 3f;
                         firstShotDelay = Fx.greenLaserCharge.lifetime;
                     }};
                     reflectable = false;
@@ -596,10 +594,7 @@ public class UnitTypes{
                     backColor = hitColor = Pal.heal;
                     frontColor = Color.white;
                     shrinkX = shrinkY = 0f;
-                    trailColor = lightColor = Pal.heal;
-                    trailEffect = Fx.missileTrail;
-                    trailInterval = 2f;
-                    trailParam = 4f;
+                    lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
                     collidesTeam = true;
@@ -625,9 +620,9 @@ public class UnitTypes{
                         trailLength = 5;
                         homingPower = 0.2f;
                     }};
-                    bulletInterval = 1f;
+                    bulletInterval = 3f;
                     intervalRandomSpread = 0f;
-                    intervalBullets = 1;
+                    intervalBullets = 2;
                     intervalAngle = 180f;
                     intervalSpread = 240f;
                 }};
