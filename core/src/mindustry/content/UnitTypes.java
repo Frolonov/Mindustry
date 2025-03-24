@@ -555,7 +555,6 @@ public class UnitTypes{
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
             groundLayer = Layer.legUnit;
-
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.laserblast;
@@ -568,9 +567,7 @@ public class UnitTypes{
                 x = y = 0;
                 reload = 350f;
                 recoil = 0f;
-
                 cooldownTime = 350f;
-
                 shoot.shots = 12;
                 shoot.shotDelay = 5f;
                 shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
@@ -580,27 +577,31 @@ public class UnitTypes{
                     shootEffect = Fx.railShoot;
                     length = 380;
                     pointEffectSpace = 60f;
-                    pierceEffect = Fx.railHit;
-                    pointEffect = Fx.railTrail;
+                    pierceEffect = new Effect(18f, 200f, e -> {
+                        color(Pal.heal);
+                        for(int i : Mathf.signs){
+                            Drawf.tri(e.x, e.y, 10f * e.fout(), 60f, e.rotation + 140f * i);
+                        }
+                    });
+                    pointEffect = new Effect(16f, e -> {
+                        color(Pal.heal);
+                        for(int i : Mathf.signs){
+                            Drawf.tri(e.x, e.y, 10f * e.fout(), 24f, e.rotation + 90 + 90f * i);
+                        }
+                         Drawf.light(e.x, e.y, 60f * e.fout(), Pal.heal, 0.5f);
+                    });
                     hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
                     damage = 60;
                     pierceDamageFactor = 0.2f;
-
                     lightningSpacing = 35f;
                     lightningLength = 5;
-                    lightningDelay = 1.1f;
-                    lightningLengthRand = 15;
                     lightningDamage = 50;
-                    lightningAngleRand = 40f;
                     lightColor = lightningColor = Pal.heal;
-
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 25f;
                     collidesTeam = true;
-                    backColor = Pal.heal;
-                    frontColor = Color.white;
-                    mixColorTo = Color.white;
+                    hitColor = Pal.heal;
                 }};
             }});
         }};
