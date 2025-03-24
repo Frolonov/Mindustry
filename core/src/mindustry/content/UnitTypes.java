@@ -537,10 +537,8 @@ public class UnitTypes{
             health = 18000f;
             armor = 9f;
             rotateSpeed = 0.7f;
-            drownTimeMultiplier = 6f;
             riseSpeed = 0.04f;
             canBoost = true;
-            lowAltitude = true;
             mechLandShake = 6f;
             engineOffset = 15f;
             engineSize = 8f;
@@ -548,9 +546,9 @@ public class UnitTypes{
             boostMultiplier = 2f;
             stepShake = 0.2f;
             legCount = 4;
-            legLength = 7.5f;
+            legLength = 11f;
             legBaseOffset = 11f;
-            legMoveSpace = 0.9f;
+            legMoveSpace = 1.2f;
             legForwardScl = 0.5f;
             allowLegStep = true;
             legPhysicsLayer = true;
@@ -571,26 +569,22 @@ public class UnitTypes{
                 reload = 350f;
                 recoil = 0f;
                 cooldownTime = 350f;
-                //shoot.shots = 50;
-                //shoot.shotDelay = 3f;
-                //shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                 parentizeEffects = true;
 
-                bullet = new BasicBulletType(24f, 50f){{
-                    width = 12f;
+                bullet = new BasicBulletType(20f, 40f){{
+                    width = 9f;
                     height = 30f;
-                    lifetime = 16f;
+                    lifetime = 20f;
                     velocityRnd = 0.07f;
                     shoot = new ShootHelix(){{
                         mag = 9.1f;
-                        scl = 0.47f;
-                        shots = 50;
-                        shotDelay = 5f;
+                        scl = 0.83f;
+                        shots = 40;
+                        shotDelay = 6f;
                         firstShotDelay = Fx.greenLaserCharge.lifetime;
                     }};
                     reflectable = false;
                     hittable = false;
-                    hitEffect = Fx.massiveExplosion;
                     smokeEffect = Fx.shootBig2;
                     backColor = hitColor = Pal.heal;
                     frontColor = Color.white;
@@ -606,8 +600,8 @@ public class UnitTypes{
                     lightningDamage = 40f;
                     status = StatusEffects.electrified;
                     statusDuration = 60f * 10;
-                    intervalBullet = new LaserBoltBulletType(4f, 40f){{
-                        width = 3f;
+                    intervalBullet = new LaserBoltBulletType(4f, 30f){{
+                        width = 2f;
                         height = 5f;
                         pierceArmor = true;
                         reflectable = false;
@@ -623,7 +617,7 @@ public class UnitTypes{
                     intervalRandomSpread = 17f;
                     intervalBullets = 2;
                     intervalAngle = 180f;
-                    intervalSpread = 270f;
+                    intervalSpread = 300f;
                 }};
             }});
         }};
