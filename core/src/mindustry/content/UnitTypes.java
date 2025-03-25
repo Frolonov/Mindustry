@@ -536,11 +536,14 @@ public class UnitTypes{
             hitSize = 29f;
             health = 18000f;
             armor = 9f;
-            canDrown = false;
+            drownTimeMultiplier = 8f;
             rotateSpeed = 0.7f;
             engineOffset = 15f;
             engineSize = 8f;
-            speed = 0.45f;
+            boostMultiplier = 4f;
+            lowAltitude = true;
+            riseSpeed = 0.04f;
+            speed = 0.12f;
             stepShake = 0.2f;
             legCount = 4;
             legLength = 14f;
@@ -550,10 +553,10 @@ public class UnitTypes{
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
-            groundLayer = Layer.legUnit;
+            legPhysicsLayer = false;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
-                shootSound = Sounds.laserblast;
+                shootSound = Sounds.dullExplosion;
                 chargeSound = Sounds.lasercharge;
                 soundPitchMin = 1f;
                 top = false;
@@ -568,14 +571,13 @@ public class UnitTypes{
                 shootStatusDuration = reload;
                 parentizeEffects = true;
 
-                bullet = new BasicBulletType(4f, 40f){{
+                bullet = new BasicBulletType(16f, 40f){{
                     width = 18f;
                     height = 18f;
-                    sprite = "large-orb";
-                    lifetime = 100f;
+                    lifetime = 25f;
                     velocityRnd = 0.07f;
-                    shoot.shots = 5;
-                    shoot.shotDelay = 30f;
+                    shoot.shots = 40;
+                    shoot.shotDelay = 10f;
                     shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                     reflectable = false;
                     hittable = false;
@@ -583,12 +585,12 @@ public class UnitTypes{
                     backColor = hitColor = Pal.heal;
                     frontColor = Color.white;
                     shrinkX = shrinkY = 0f;
-                    buildingDamageMultiplier = 5f;
+                    buildingDamageMultiplier = 3f;
                     lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 80f;
                     collidesTeam = true;
-                    lightning = 2;
+                    lightning = 1;
                     lightningLength = 12;
                     lightningColor = Pal.heal;
                     lightningCone = 30f;
@@ -598,7 +600,7 @@ public class UnitTypes{
                     intervalBullet = new LaserBoltBulletType(4f, 20f){{
                         width = 2f;
                         height = 5f;
-                        buildingDamageMultiplier = 3f;
+                        buildingDamageMultiplier = 2f;
                         reflectable = false;
                         status = StatusEffects.electrified;
                         statusDuration = 60f * 5;
