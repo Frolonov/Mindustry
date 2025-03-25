@@ -536,13 +536,14 @@ public class UnitTypes{
             hitSize = 29f;
             health = 18000f;
             armor = 9f;
-            drownTimeMultiplier = 8f;
+            drownTimeMultiplier = 16f;
             rotateSpeed = 0.7f;
             engineOffset = 15f;
             engineSize = 8f;
-            boostMultiplier = 4f;
+            boostMultiplier = 5f;
             lowAltitude = true;
             riseSpeed = 0.04f;
+            mechLandShake = 6f;
             speed = 0.12f;
             stepShake = 0.2f;
             legCount = 4;
@@ -553,7 +554,7 @@ public class UnitTypes{
             hovering = true;
             shadowElevation = 0.2f;
             ammoType = new PowerAmmoType(4000);
-            legPhysicsLayer = false;
+            allowLegStep = false;
             drawShields = false;
             weapons.add(new Weapon("corvus-weapon"){{
                 shootSound = Sounds.dullExplosion;
@@ -571,13 +572,13 @@ public class UnitTypes{
                 shootStatusDuration = reload;
                 parentizeEffects = true;
 
-                bullet = new BasicBulletType(16f, 40f){{
+                bullet = new BasicBulletType(16f, 20f){{
                     width = 18f;
                     height = 18f;
                     lifetime = 25f;
                     velocityRnd = 0.07f;
                     shoot.shots = 40;
-                    shoot.shotDelay = 10f;
+                    shoot.shotDelay = 5f;
                     shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                     reflectable = false;
                     hittable = false;
@@ -585,7 +586,7 @@ public class UnitTypes{
                     backColor = hitColor = Pal.heal;
                     frontColor = Color.white;
                     shrinkX = shrinkY = 0f;
-                    buildingDamageMultiplier = 3f;
+                    buildingDamageMultiplier = 5f;
                     lightColor = Pal.heal;
                     chargeEffect = Fx.greenLaserCharge;
                     healPercent = 80f;
@@ -594,13 +595,13 @@ public class UnitTypes{
                     lightningLength = 12;
                     lightningColor = Pal.heal;
                     lightningCone = 30f;
-                    lightningDamage = 20f;
+                    lightningDamage = 10f;
                     status = StatusEffects.electrified;
                     statusDuration = 60f * 5;
-                    intervalBullet = new LaserBoltBulletType(4f, 20f){{
+                    intervalBullet = new LaserBoltBulletType(4f, 10f){{
                         width = 2f;
                         height = 5f;
-                        buildingDamageMultiplier = 2f;
+                        buildingDamageMultiplier = 4f;
                         reflectable = false;
                         status = StatusEffects.electrified;
                         statusDuration = 60f * 5;
