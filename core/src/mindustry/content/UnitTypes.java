@@ -540,6 +540,7 @@ public class UnitTypes{
             rotateSpeed = 0.7f;
             engineOffset = 15f;
             engineSize = 8f;
+            canBoost = true;
             boostMultiplier = 5f;
             lowAltitude = true;
             riseSpeed = 0.04f;
@@ -568,8 +569,6 @@ public class UnitTypes{
                 reload = 480f;
                 recoil = 0f;
                 cooldownTime = 470f;
-                shootStatus = StatusEffects.slow;
-                shootStatusDuration = reload;
                 parentizeEffects = true;
 
                 bullet = new BasicBulletType(16f, 20f){{
@@ -578,7 +577,7 @@ public class UnitTypes{
                     lifetime = 25f;
                     velocityRnd = 0.07f;
                     shoot.shots = 40;
-                    shoot.shotDelay = 5f;
+                    shoot.shotDelay = 4f;
                     shoot.firstShotDelay = Fx.greenLaserCharge.lifetime;
                     reflectable = false;
                     hittable = false;
@@ -592,7 +591,7 @@ public class UnitTypes{
                     healPercent = 80f;
                     collidesTeam = true;
                     lightning = 1;
-                    lightningLength = 12;
+                    lightningLength = 8;
                     lightningColor = Pal.heal;
                     lightningCone = 30f;
                     lightningDamage = 10f;
