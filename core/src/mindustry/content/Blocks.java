@@ -3446,7 +3446,7 @@ public class Blocks{
                     despawnEffect = Fx.blastExplosion;
 
                     status = StatusEffects.blasted;
-                    statusDuration = 60f;
+                    statusDuration = 60f * 4f;
                 }},
                 Items.pyratite, new MissileBulletType(3.7f, 12){{
                     frontColor = Pal.lightishOrange;
@@ -3770,6 +3770,7 @@ public class Blocks{
                     frontColor = Pal.missileYellow;
 
                     status = StatusEffects.blasted;
+                    statusDuration = 60f * 4f;
                 }},
                 Items.plastanium, new ArtilleryBulletType(3.4f, 20, "shell"){{
                     hitEffect = Fx.plasticExplosion;
@@ -3848,7 +3849,7 @@ public class Blocks{
                     collidesGround = true;
 
                     status = StatusEffects.blasted;
-                    statusDuration = 60f;
+                    statusDuration = 60f * 4f;
                 }},
                 Items.plastanium, new FlakBulletType(4f, 8){{
                     ammoMultiplier = 4f;
@@ -4366,6 +4367,7 @@ public class Blocks{
                 hitSound = Sounds.titanExplosion;
 
                 status = StatusEffects.blasted;
+                statusDuration = 60f * 4f;
 
                 trailLength = 32;
                 trailWidth = 3.35f;
@@ -4399,6 +4401,7 @@ public class Blocks{
                 hitSound = Sounds.titanExplosion;
 
                 status = StatusEffects.blasted;
+                statusDuration = 60f * 4f;
 
                 trailLength = 32;
                 trailWidth = 3.35f;
@@ -4435,6 +4438,7 @@ public class Blocks{
                 hitSound = Sounds.titanExplosion;
 
                 status = StatusEffects.blasted;
+                statusDuration = 60f * 4f;
 
                 trailLength = 32;
                 trailWidth = 3.35f;
@@ -5965,14 +5969,14 @@ public class Blocks{
         }};
 
         exponentialReconstructor = new Reconstructor("exponential-reconstructor"){{
-            requirements(Category.units, with(Items.lead, 2000, Items.silicon, 1000, Items.titanium, 2000, Items.thorium, 750, Items.plastanium, 450, Items.phaseFabric, 600));
+            requirements(Category.units, with(Items.metaglass, 2000, Items.silicon, 1500, Items.graphite, 1000, Items.thorium, 1000, Items.plastanium, 400, Items.phaseFabric, 100));
 
             size = 7;
-            consumePower(13f);
-            consumeItems(with(Items.silicon, 850, Items.titanium, 750, Items.plastanium, 650));
-            consumeLiquid(Liquids.cryofluid, 1f);
+            consumePower(100f);
+            consumeItems(with(Items.silicon, 480, Items.titanium, 480, Items.plastanium, 360));
+            consumeLiquid(Liquids.cryofluid, 0.4f);
 
-            constructTime = 60f * 60f * 1.5f;
+            constructTime = 80f * 60f;
             liquidCapacity = 60f;
 
             upgrades.addAll(
@@ -5987,14 +5991,14 @@ public class Blocks{
         }};
 
         tetrativeReconstructor = new Reconstructor("tetrative-reconstructor"){{
-            requirements(Category.units, with(Items.lead, 4000, Items.silicon, 3000, Items.thorium, 1000, Items.plastanium, 600, Items.phaseFabric, 600, Items.surgeAlloy, 800));
+            requirements(Category.units, with(Items.metaglass, 3000, Items.silicon, 2000, Items.graphite, 2000, Items.plastanium, 500, Items.phaseFabric, 500, Items.surgeAlloy, 500));
 
             size = 9;
-            consumePower(25f);
-            consumeItems(with(Items.silicon, 1000, Items.plastanium, 600, Items.surgeAlloy, 500, Items.phaseFabric, 350));
-            consumeLiquid(Liquids.cryofluid, 3f);
+            consumePower(300f);
+            consumeItems(with(Items.silicon, 720, Items.plastanium, 480, Items.surgeAlloy, 360, Items.phaseFabric, 240));
+            consumeLiquid(Liquids.cryofluid, 0.8f);
 
-            constructTime = 60f * 60f * 4;
+            constructTime = 120f * 60f;
             liquidCapacity = 180f;
 
             upgrades.addAll(
