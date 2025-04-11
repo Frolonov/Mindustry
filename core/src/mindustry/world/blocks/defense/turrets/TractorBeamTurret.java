@@ -29,7 +29,7 @@ public class TractorBeamTurret extends BaseTurret{
     public boolean targetAir = true, targetGround = false;
     public Color laserColor = Color.white;
     public StatusEffect status = StatusEffects.none;
-    public float statusDuration = 300;
+    public float statusDuration = 360;
 
     public Sound shootSound = Sounds.tractorbeam;
     public float shootSoundVolume = 0.9f;
@@ -80,7 +80,7 @@ public class TractorBeamTurret extends BaseTurret{
 
             //retarget
             if(timer(timerTarget, retargetTime)){
-                target = Units.closestEnemy(team, x, y, range, u -> u.checkTarget(targetAir, targetGround));
+                target = Units.farthestEnemy(team, x, y, range, u -> u.checkTarget(targetAir, targetGround));
             }
 
             //consume coolant

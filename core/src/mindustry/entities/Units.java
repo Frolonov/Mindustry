@@ -19,7 +19,7 @@ import static mindustry.Vars.*;
 public class Units{
     private static final Rect hitrect = new Rect();
     private static Unit result;
-    private static float cdist, cpriority;
+    private static float cdist, cpriority, chealth, chealthMultiplier;
     private static int intResult;
     private static Building buildResult;
 
@@ -279,6 +279,32 @@ public class Units{
             if(dst2 < range*range && (result == null || dst2 < cdist || e.type.targetPriority > cpriority) && e.type.targetPriority >= cpriority){
                 result = e;
                 cdist = dst2;
+                cpriority = e.type.targetPriority;
+            }
+        });
+
+        return result;
+    }
+
+    /** Returns the farthest enemy of this team. Filter by predicate. */
+    public static Unit farthestEnemy(Team team, float x, float y, float range, Boolf<Unit> predicate){
+        if(team == Team.derelict) return null;
+
+        result = null;
+        cdist = 0f;
+        cpriority = -99999f;
+        chealth = -2f;
+        chealthMultiplier = 0.1f;
+
+        nearbyEnemies(team, x - range, y - range, range*2f, range*2f, e -> {
+            if(e.dead() || !predicate.get(e) || e.team == Team.derelict || !e.targetable(team) || e.inFogTo(team)) return;
+
+            float dst2 = e.dst2(x, y) - (e.hitSize * e.hitSize);
+            if(dst2 < range*range && (result == null || dst2 > cdist || e.type.targetPriority > cpriority) && e.type.targetPriority >= cpriority && e.health > chealth && e.healthMultiplier >= chealthMultiplier){
+                result = e;
+                cdist = dst2;
+                chealth = e.health;
+                chealthMultiplier = e.healthMultiplier;
                 cpriority = e.type.targetPriority;
             }
         });
