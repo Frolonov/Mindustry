@@ -110,8 +110,6 @@ public class LiquidTurret extends Turret{
             else{
                 target = Units.nominalEnemy(player.team(), x, y, range, u -> !u.dead);
             }
-
-            super.findTarget();
         }
 
         @Override
