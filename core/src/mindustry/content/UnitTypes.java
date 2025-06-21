@@ -3855,6 +3855,8 @@ public class UnitTypes{
                     lifetime = 60 * 0.496f;
                     rangeOverride = 361.2f;
                     followAimSpeed = 5f;
+                    collidesTiles = false;
+                    scaleLife = true;
 
                     width = 12f;
                     height = 22f;
@@ -3865,7 +3867,6 @@ public class UnitTypes{
                     hitEffect = despawnEffect = Fx.hitBulletColor;
 
                     keepVelocity = false;
-                    collidesGround = true;
                     collidesAir = false;
 
                     //workaround to get the missile to behave like in spawnUnit while still spawning on death
