@@ -3837,6 +3837,23 @@ public class UnitTypes{
                 y = 1f;
             }});
 
+            //target indicator
+            weapons.add(new Weapon() {{
+                                shootSound = Sounds.none;
+                                shootCone = 360f;
+                                x = 0f;
+                                y = 0f;
+                                rotate = false;
+                                mirror = false;
+                                reload = 36000f;
+                                recoil = 0f;
+                                bullet = new BasicBulletType(80f, 1f) {{
+                                    shootEffect = Fx.none;
+                                    collidesAir = false;
+                                    lifetime = 4.5f;
+                                }};
+            }});
+
             weapons.add(new Weapon("quell-weapon"){{
                 shootSound = Sounds.missileSmall;
                 x = 51 / 4f;
@@ -3853,7 +3870,7 @@ public class UnitTypes{
                     smokeEffect = Fx.shootBigSmoke2;
                     shake = 1f;
                     lifetime = 60 * 0.496f;
-                    rangeOverride = 361.2f;
+                    
                     followAimSpeed = 5f;
                     collidesTiles = false;
                     scaleLife = true;
