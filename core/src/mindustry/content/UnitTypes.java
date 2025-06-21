@@ -3862,13 +3862,12 @@ public class UnitTypes{
                 rotate = true;
                 rotateSpeed = 2f;
                 useAttackRange = false;
-                alwaysShooting = true;
                 reload = 55f;
                 layerOffset = -0.001f;
                 recoil = 1f;
                 rotationLimit = 60f;
 
-                bullet = new BasicBulletType(4.3f, 70f, "missile-large"){{
+                bullet = new ArtilleryBulletType(4.3f, 70f, "missile-large"){{
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootBigSmoke2;
                     shake = 1f;
@@ -3880,6 +3879,8 @@ public class UnitTypes{
 
                     width = 12f;
                     height = 22f;
+                    shrinkX = 0f;
+                    shrinkY = 0f;
                     hitSize = 7f;
                     hitColor = backColor = trailColor = Pal.sapBulletBack;
                     trailWidth = 3f;
