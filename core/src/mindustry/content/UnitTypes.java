@@ -3861,6 +3861,8 @@ public class UnitTypes{
                 y = 5 / 4f;
                 rotate = true;
                 rotateSpeed = 2f;
+                useAttackRange = false;
+                alwaysShooting = true;
                 reload = 55f;
                 layerOffset = -0.001f;
                 recoil = 1f;
