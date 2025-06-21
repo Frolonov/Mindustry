@@ -3837,10 +3837,11 @@ public class UnitTypes{
                 y = 1f;
             }});
 
-            //target indicator
+            //hidden target indicator for max range targetting
             weapons.add(new Weapon() {{
                                 shootSound = Sounds.none;
                                 shootCone = 360f;
+                                display = false;
                                 x = 0f;
                                 y = 0f;
                                 rotate = false;
