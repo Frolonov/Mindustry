@@ -3837,27 +3837,50 @@ public class UnitTypes{
                 y = 1f;
             }});
 
+            //hidden target indicator for max range targetting
+            weapons.add(new Weapon() {{
+                                shootSound = Sounds.none;
+                                shootCone = 360f;
+                                display = false;
+                                x = 0f;
+                                y = 0f;
+                                rotate = false;
+                                mirror = false;
+                                reload = 36000f;
+                                recoil = 0f;
+                                bullet = new BasicBulletType(80f, 1f) {{
+                                    shootEffect = Fx.none;
+                                    collidesAir = false;
+                                    lifetime = 4.5f;
+                                }};
+            }});
+
             weapons.add(new Weapon("quell-weapon"){{
                 shootSound = Sounds.missileSmall;
                 x = 51 / 4f;
                 y = 5 / 4f;
                 rotate = true;
                 rotateSpeed = 2f;
+                useAttackRange = false;
                 reload = 55f;
                 layerOffset = -0.001f;
                 recoil = 1f;
                 rotationLimit = 60f;
 
-                bullet = new BasicBulletType(4.3f, 70f, "missile-large"){{
+                bullet = new ArtilleryBulletType(4.3f, 70f, "missile-large"){{
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootBigSmoke2;
                     shake = 1f;
                     lifetime = 60 * 0.496f;
-                    rangeOverride = 361.2f;
+                    
                     followAimSpeed = 5f;
+                    collidesTiles = false;
+                    scaleLife = true;
 
                     width = 12f;
                     height = 22f;
+                    shrinkX = 0f;
+                    shrinkY = 0f;
                     hitSize = 7f;
                     hitColor = backColor = trailColor = Pal.sapBulletBack;
                     trailWidth = 3f;
@@ -3865,7 +3888,6 @@ public class UnitTypes{
                     hitEffect = despawnEffect = Fx.hitBulletColor;
 
                     keepVelocity = false;
-                    collidesGround = true;
                     collidesAir = false;
 
                     //workaround to get the missile to behave like in spawnUnit while still spawning on death
