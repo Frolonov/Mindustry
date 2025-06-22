@@ -3848,10 +3848,12 @@ public class UnitTypes{
                 recoil = 1f;
                 rotationLimit = 60f;
 
-                bullet = new BasicBulletType(4.3f, 70f, "missile-large"){{
+                bullet = new BasicBulletType(4.3f, 5f, "missile-large"){{
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootBigSmoke2;
                     shake = 1f;
+                    splashDamage = 70f;
+                    splashDamageRadius = 32f;
                     lifetime = 60 * 0.496f;
                     scaleLife = true;
                     aimExtension = 233.232f;
