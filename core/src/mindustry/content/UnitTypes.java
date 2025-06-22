@@ -3854,7 +3854,7 @@ public class UnitTypes{
                     shake = 1f;
                     lifetime = 60 * 0.496f;
                     scaleLife = true;
-                    aimExtension = 232f;
+                    aimExtension = 233.232f;
                     followAimSpeed = 5f;
                     width = 12f;
                     height = 22f;
