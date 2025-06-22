@@ -190,10 +190,10 @@ public class AIController implements UnitController{
                 mount.target = target;
             }else{
                 if(ret){
-                    mount.target = findTarget(mountX, mountY, wrange, weapon.bullet.collidesAir, weapon.bullet.collidesGround);
+                    mount.target = findTarget(mountX, mountY, wrange + weapon.aimExtension, weapon.bullet.collidesAir, weapon.bullet.collidesGround);
                 }
 
-                if(checkTarget(mount.target, mountX, mountY, wrange)){
+                if(checkTarget(mount.target, mountX, mountY, wrange + weapon.aimExtension)){
                     mount.target = null;
                 }
             }
@@ -201,7 +201,7 @@ public class AIController implements UnitController{
             boolean shoot = false;
 
             if(mount.target != null){
-                shoot = mount.target.within(mountX, mountY, wrange + (mount.target instanceof Sized s ? s.hitSize()/2f : 0f)) && shouldShoot();
+                shoot = mount.target.within(mountX, mountY, wrange + weapon.aimExtension + (mount.target instanceof Sized s ? s.hitSize()/2f : 0f)) && shouldShoot();
 
                 if(unit.type.autoDropBombs && !shoot){
                     if(bomberTarget == null || !bomberTarget.isAdded() || !bomberTarget.within(unit, unit.hitSize/2f + ((Sized)bomberTarget).hitSize()/2f)){
