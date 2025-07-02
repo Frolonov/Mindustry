@@ -2453,12 +2453,15 @@ public class UnitTypes{
                     clipSize = 250f;
                     shootEffect = Fx.hitEmpSpark;
                     smokeEffect = Fx.shootBigSmoke2;
-                    lifetime = 60f;
+                    lifetime = 64f;
                     sprite = "circle-bullet";
                     backColor = Pal.heal;
                     frontColor = Color.white;
                     width = height = 12f;
                     shrinkY = 0f;
+                    hittable = false;
+                    reflectable = false;
+                    absorbable = false;
                     speed = 5f;
                     trailLength = 20;
                     trailWidth = 6f;
