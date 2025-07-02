@@ -1506,6 +1506,7 @@ public class UnitTypes{
             drag = 0.017f;
             lowAltitude = false;
             flying = true;
+            aimExtension = 36f;
 
             engineOffset = 13f;
             engineSize = 7f;
@@ -2841,6 +2842,7 @@ public class UnitTypes{
             crushDamage = 13f / 5f;
             treadRects = new Rect[]{new Rect(22 - 154f/2f, 16 - 154f/2f, 28, 130)};
             hovering = true;
+            canDrown = false;
             
             weapons.add(new Weapon("vanquish-weapon"){{
                 shootSound = Sounds.mediumCannon;
@@ -2933,6 +2935,7 @@ public class UnitTypes{
             crushDamage = 5f;
             rotateSpeed = 1.1f;
             hovering = true;
+            canDrown = false;
             float xo = 231f/2f, yo = 231f/2f;
             treadRects = new Rect[]{new Rect(27 - xo, 152 - yo, 56, 73), new Rect(24 - xo, 51 - 9 - yo, 29, 17), new Rect(59 - xo, 18 - 9 - yo, 39, 19)};
 
@@ -3963,6 +3966,7 @@ public class UnitTypes{
             payloadCapacity = Mathf.sqr(3f) * tilePayload;
             researchCostMultiplier = 0f;
             targetAir = false;
+            aimExtension = 234f;
 
             engineSize = 4.8f;
             engineOffset = 61 / 4f;
