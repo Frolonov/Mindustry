@@ -1506,7 +1506,6 @@ public class UnitTypes{
             drag = 0.017f;
             lowAltitude = false;
             flying = true;
-            aimExtension = 36f;
 
             engineOffset = 13f;
             engineSize = 7f;
@@ -1534,7 +1533,7 @@ public class UnitTypes{
                 bullet = new ArtilleryBulletType(1.2f, 21f){{
                     sprite = "large-bomb";
                     width = height = 120/4f;
-
+                    aimExtension = 36f;
                     backColor = Pal.heal;
                     frontColor = Color.white;
                     mixColorTo = Color.white;
@@ -3966,7 +3965,6 @@ public class UnitTypes{
             payloadCapacity = Mathf.sqr(3f) * tilePayload;
             researchCostMultiplier = 0f;
             targetAir = false;
-            aimExtension = 234f;
 
             engineSize = 4.8f;
             engineOffset = 61 / 4f;
@@ -4001,7 +3999,7 @@ public class UnitTypes{
                     shake = 1f;
                     keepVelocity = false;
                     collidesAir = false;
-
+                    aimExtension = 234f;
                     sprite = "missile-large";
                     width = 9f;
                     height = 12f;
