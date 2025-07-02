@@ -3957,7 +3957,7 @@ public class UnitTypes{
             speed = 0.95f;
             rotateSpeed = 3.2f;
             accel = 0.1f;
-            health = 5600f;
+            health = 6400f;
             armor = 9f;
             hitSize = 36f;
             payloadCapacity = Mathf.sqr(3f) * tilePayload;
@@ -4008,7 +4008,7 @@ public class UnitTypes{
                     hitSize = 6f;
                     homingPower = 0.08f;
                     knockback = 1.6f;
-                    splashDamage = 100f;
+                    splashDamage = 120f;
                     splashDamageRadius = 28f;
 
                 }};
