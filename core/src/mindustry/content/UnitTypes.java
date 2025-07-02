@@ -2510,8 +2510,7 @@ public class UnitTypes{
         //region core
 
         alpha = new UnitType("alpha"){{
-            aiController = () -> new BuilderAI(true, 400f);
-            controller = u -> u.team.isAI() ? aiController.get() : new CommandAI();
+            controller = u -> u.team.isAI() ? new BuilderAI(true, 400f) : new CommandAI();
             isEnemy = false;
 
             targetBuildingsMobile = false;
@@ -2550,8 +2549,7 @@ public class UnitTypes{
         }};
 
         beta = new UnitType("beta"){{
-            aiController = () -> new BuilderAI(true, 400f);
-            controller = u -> u.team.isAI() ? aiController.get() : new CommandAI();
+            controller = u -> u.team.isAI() ? new BuilderAI(true, 400f) : new CommandAI();
             isEnemy = false;
 
             targetBuildingsMobile = false;
@@ -2593,8 +2591,7 @@ public class UnitTypes{
         }};
 
         gamma = new UnitType("gamma"){{
-            aiController = () -> new BuilderAI(true, 400f);
-            controller = u -> u.team.isAI() ? aiController.get() : new CommandAI();
+            controller = u -> u.team.isAI() ? new BuilderAI(true, 400f) : new CommandAI();
             isEnemy = false;
 
             targetBuildingsMobile = false;
