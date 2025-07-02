@@ -4529,9 +4529,8 @@ public class Blocks{
                 frontColor = Color.white;
                 ammoMultiplier = 1f;
                 hitSound = Sounds.titanExplosion;
-
                 status = StatusEffects.blasted;
-
+                statusDuration = 60f * 2f;
                 trailLength = 32;
                 trailWidth = 3.35f;
                 trailSinScl = 2.5f;
@@ -4563,9 +4562,8 @@ public class Blocks{
                 frontColor = Color.white;
                 ammoMultiplier = 1f;
                 hitSound = Sounds.titanExplosion;
-
                 status = StatusEffects.blasted;
-
+                statusDuration = 60f * 2f;
                 trailLength = 32;
                 trailWidth = 3.35f;
                 trailSinScl = 2.5f;
@@ -4623,9 +4621,8 @@ public class Blocks{
                 frontColor = Color.valueOf("e4ffd6");
                 ammoMultiplier = 1f;
                 hitSound = Sounds.titanExplosion;
-
                 status = StatusEffects.blasted;
-
+                statusDuration = 60f * 2f;
                 trailLength = 32;
                 trailWidth = 3.35f;
                 trailSinScl = 2.5f;
