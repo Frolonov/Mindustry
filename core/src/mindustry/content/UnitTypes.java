@@ -99,7 +99,7 @@ public class UnitTypes{
 
         dagger = new UnitType("dagger"){{
             researchCostMultiplier = 0.5f;
-            speed = 0.5f;
+            speed = 0.6f;
             hitSize = 8f;
             health = 150;
             weapons.add(new Weapon("large-weapon"){{
@@ -117,7 +117,7 @@ public class UnitTypes{
         }};
 
         mace = new UnitType("mace"){{
-            speed = 0.5f;
+            speed = 0.6f;
             hitSize = 10f;
             health = 550;
             armor = 4f;
@@ -151,7 +151,7 @@ public class UnitTypes{
         }};
 
         fortress = new UnitType("fortress"){{
-            speed = 0.43f;
+            speed = 0.53f;
             hitSize = 13f;
             rotateSpeed = 3f;
             targetAir = false;
@@ -377,7 +377,7 @@ public class UnitTypes{
         nova = new UnitType("nova"){{
             canBoost = true;
             boostMultiplier = 1.5f;
-            speed = 0.55f;
+            speed = 0.65f;
             hitSize = 8f;
             health = 120f;
             buildSpeed = 0.3f;
@@ -409,7 +409,7 @@ public class UnitTypes{
         pulsar = new UnitType("pulsar"){{
             canBoost = true;
             boostMultiplier = 1.6f;
-            speed = 0.7f;
+            speed = 0.8f;
             hitSize = 11f;
             health = 320f;
             buildSpeed = 0.5f;
@@ -475,7 +475,7 @@ public class UnitTypes{
             mechFrontSway = 0.55f;
             ammoType = new PowerAmmoType(1500);
 
-            speed = 0.4f;
+            speed = 0.5f;
             hitSize = 13f;
 
             mineSpeed = 4f;
@@ -494,7 +494,7 @@ public class UnitTypes{
 
                 bullet = new LaserBulletType(){{
                     damage = 45f;
-                    recoil = 1f;
+                    recoil = 0f;
                     sideAngle = 45f;
                     sideWidth = 1f;
                     sideLength = 70f;
@@ -716,7 +716,7 @@ public class UnitTypes{
         }};
 
         atrax = new UnitType("atrax"){{
-            speed = 0.6f;
+            speed = 0.7f;
             drag = 0.4f;
             hitSize = 13f;
             rotateSpeed = 3f;
@@ -756,7 +756,7 @@ public class UnitTypes{
         }};
 
         spiroct = new UnitType("spiroct"){{
-            speed = 0.54f;
+            speed = 0.64f;
             drag = 0.4f;
             hitSize = 15f;
             rotateSpeed = 3f;
@@ -3999,7 +3999,7 @@ public class UnitTypes{
                     shake = 1f;
                     keepVelocity = false;
                     collidesAir = false;
-                    aimExtension = 234f;
+                    aimExtension = 12f;
                     sprite = "missile-large";
                     width = 9f;
                     height = 12f;
