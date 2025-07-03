@@ -6127,7 +6127,7 @@ public class Blocks{
 
             size = 3;
             consumePower(3f);
-            consumeItems(with(Items.silicon, 40, Items.graphite, 40));
+            consumeItems(with(Items.silicon, 40, Items.graphite, 30));
 
             constructTime = 60f * 10f;
 
@@ -6147,7 +6147,7 @@ public class Blocks{
 
             size = 5;
             consumePower(6f);
-            consumeItems(with(Items.silicon, 130, Items.titanium, 80, Items.metaglass, 40));
+            consumeItems(with(Items.silicon, 130, Items.titanium, 70, Items.metaglass, 40));
 
             constructTime = 60f * 30f;
 
@@ -6170,7 +6170,7 @@ public class Blocks{
             consumeItems(with(Items.silicon, 480, Items.titanium, 480, Items.plastanium, 360));
             consumeLiquid(Liquids.cryofluid, 0.4f);
 
-            constructTime = 60f * 60f * 1.5f;
+            constructTime = 60f * 80f;
             liquidCapacity = 60f;
 
             upgrades.addAll(
@@ -6192,7 +6192,7 @@ public class Blocks{
             consumeItems(with(Items.silicon, 720, Items.plastanium, 480, Items.surgeAlloy, 360, Items.phaseFabric, 240));
             consumeLiquid(Liquids.cryofluid, 0.8f);
 
-            constructTime = 60f * 60f * 4;
+            constructTime = 60f * 60f * 2;
             liquidCapacity = 180f;
 
             upgrades.addAll(
@@ -6620,11 +6620,11 @@ public class Blocks{
             requirements(Category.effect, BuildVisibility.notLegacyLaunchPadOnly, with(Items.copper, 350, Items.silicon, 250, Items.lead, 300, Items.titanium, 200));
             size = 4;
             itemCapacity = 100;
-            launchTime = 60f * 30;
+            launchTime = 60f * 20;
             liquidCapacity = 40f;
             hasPower = true;
             drawLiquid = Liquids.oil;
-            consumeLiquid(Liquids.oil, 9f/60f);
+            consumeLiquid(Liquids.oil, 6f/60f);
             consumePower(8f);
         }};
 
@@ -6636,7 +6636,7 @@ public class Blocks{
 
             coolingEffect = new RadialEffect(Fx.steamCoolSmoke, 4, 90f, 9.5f, 180f);
             liquidCapacity = 3000f;
-            consumeLiquidAmount = 1500f;
+            consumeLiquidAmount = 1000f;
         }};
 
         interplanetaryAccelerator = new Accelerator("interplanetary-accelerator"){{
