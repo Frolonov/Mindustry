@@ -3859,14 +3859,16 @@ public class UnitTypes{
                 recoil = 1f;
                 rotationLimit = 60f;
 
-                bullet = new BasicBulletType(4.3f, 70f, "missile-large"){{
+                bullet = new BasicBulletType(4.3f, 5f, "missile-large"){{
                     shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootBigSmoke2;
                     shake = 1f;
+                    splashDamage = 70f;
+                    splashDamageRadius = 32f;
                     lifetime = 60 * 0.496f;
-                    rangeOverride = 361.2f;
+                    scaleLife = true;
+                    aimExtension = 233.232f;
                     followAimSpeed = 5f;
-
                     width = 12f;
                     height = 22f;
                     hitSize = 7f;
@@ -3876,7 +3878,7 @@ public class UnitTypes{
                     hitEffect = despawnEffect = Fx.hitBulletColor;
 
                     keepVelocity = false;
-                    collidesGround = true;
+                    collidesTiles = false;
                     collidesAir = false;
 
                     //workaround to get the missile to behave like in spawnUnit while still spawning on death
