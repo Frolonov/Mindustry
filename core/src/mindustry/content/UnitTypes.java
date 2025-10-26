@@ -3971,6 +3971,7 @@ public class UnitTypes{
                 y = -10f / 4f;
                 mirror = true;
                 rotate = true;
+                alternate = false;
                 rotateSpeed = 0.4f;
                 reload = 70f;
                 layerOffset = -20f;
@@ -3980,9 +3981,8 @@ public class UnitTypes{
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 40f;
-                shoot.shots = 3;
+                shoot.shots = 4;
                 shoot.shotDelay = 5f;
-                inaccuracy = 28f;
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4007,11 +4007,13 @@ public class UnitTypes{
                     collidesAir = false;
 
                     spawnUnit = new MissileUnitType("disrupt-missile"){{
-                        targetAir = false;
-                        speed = 4.6f;
+                        targetAir = true;
+                        circleTarget = true;
+                        hitSize = 2f;
+                        speed = 8.6f;
                         maxRange = 5f;
                         outlineColor = Pal.darkOutline;
-                        health = 70;
+                        health = 400;
                         homingDelay = 10f;
                         lowAltitude = true;
                         engineSize = 3f;
@@ -4041,28 +4043,16 @@ public class UnitTypes{
                         }});
 
                         weapons.add(new Weapon(){{
-                            shootCone = 360f;
+                            shootCone = 30f;
                             mirror = false;
-                            reload = 1f;
-                            shootOnDeath = true;
-                            bullet = new ExplosionBulletType(140f, 25f){{
-                                collidesAir = false;
+                            reload = 10f;
+                            bullet = new LaserBoltBulletType(8f, 40){{
                                 suppressionRange = 140f;
-                                shootEffect = new ExplosionEffect(){{
-                                    lifetime = 50f;
-                                    waveStroke = 5f;
-                                    waveLife = 8f;
-                                    waveColor = Color.white;
-                                    sparkColor = smokeColor = Pal.suppress;
-                                    waveRad = 40f;
-                                    smokeSize = 4f;
-                                    smokes = 7;
-                                    smokeSizeBase = 0f;
-                                    sparks = 10;
-                                    sparkRad = 40f;
-                                    sparkLen = 6f;
-                                    sparkStroke = 2f;
-                                }};
+                                backColor = Pal.sapBulletBack;
+                                frontColor = Color.sapBullet;
+                                lightningLength = 6;
+                                lightningCone = 20f;
+                                lightningDamage = 30;
                             }};
                         }});
                     }};
