@@ -4049,7 +4049,7 @@ public class UnitTypes{
                             bullet = new LaserBoltBulletType(8f, 40){{
                                 suppressionRange = 140f;
                                 backColor = Pal.sapBulletBack;
-                                frontColor = Color.sapBullet;
+                                frontColor = Pal.sapBullet;
                                 lightningLength = 6;
                                 lightningCone = 20f;
                                 lightningDamage = 30;
