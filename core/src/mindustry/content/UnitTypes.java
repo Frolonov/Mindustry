@@ -4020,10 +4020,8 @@ public class UnitTypes{
                         speed = 8.6f;
                         outlineColor = Pal.darkOutline;
                         health = 400;
-                        lowAltitude = false;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
-                        engineLayer = Layer.effect;
                         deathExplosionEffect = Fx.none;
                         loopSoundVolume = 0.1f;
 
@@ -4052,7 +4050,6 @@ public class UnitTypes{
                             mirror = false;
                             reload = 10f;
                             bullet = new LaserBoltBulletType(8f, 40){{
-                                suppressionRange = 140f;
                                 backColor = Pal.sapBulletBack;
                                 frontColor = Pal.sapBullet;
                                 lightningLength = 6;
