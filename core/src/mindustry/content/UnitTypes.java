@@ -3972,11 +3972,11 @@ public class UnitTypes{
                 mirror = true;
                 rotate = true;
                 alternate = false;
-                rotateSpeed = 0.4f;
-                reload = 70f;
+                rotateSpeed = 2.4f;
+                reload = 30f;
                 layerOffset = -20f;
                 recoil = 1f;
-                rotationLimit = 22f;
+                rotationLimit = 82f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
@@ -3997,67 +3997,13 @@ public class UnitTypes{
                     mirror = true;
                 }});
 
-                bullet = new BulletType(){{
-                    shootEffect = Fx.sparkShoot;
-                    smokeEffect = Fx.shootSmokeTitan;
-                    hitColor = Pal.suppress;
-                    shake = 1f;
-                    speed = 0f;
-                    keepVelocity = false;
-                    collidesAir = false;
-
-                    spawnUnit = new UnitType("disrupt-missile"){{
-                        aiController = FlyingFollowAI::new;
-                        envDisabled = 0;
-                        flying = true;
-                        drag = 0.07f;
-                        rotateSpeed = 2f;
-                        accel = 0.1f;
-                        hitSize = 46f;
-                        targetAir = true;
-                        circleTarget = true;
-                        hitSize = 2f;
-                        speed = 8.6f;
-                        outlineColor = Pal.darkOutline;
-                        health = 400;
-                        engineSize = 3f;
-                        engineColor = trailColor = Pal.sapBulletBack;
-                        deathExplosionEffect = Fx.none;
-                        loopSoundVolume = 0.1f;
-
-                        parts.add(new ShapePart(){{
-                            layer = Layer.effect;
-                            circle = true;
-                            y = -0.25f;
-                            radius = 1.5f;
-                            color = Pal.suppress;
-                            colorTo = Color.white;
-                            progress = PartProgress.life.curve(Interp.pow5In);
-                        }});
-
-                        parts.add(new RegionPart("-fin"){{
-                            mirror = true;
-                            progress = PartProgress.life.mul(3f).curve(Interp.pow5In);
-                            moveRot = 32f;
-                            rotation = -6f;
-                            moveY = 1.5f;
-                            x = 3f / 4f;
-                            y = -6f / 4f;
-                        }});
-
-                        weapons.add(new Weapon(){{
-                            shootCone = 30f;
-                            mirror = false;
-                            reload = 10f;
-                            bullet = new LaserBoltBulletType(8f, 40){{
+                bullet = new LaserBoltBulletType(8f, 40){{
                                 backColor = Pal.sapBulletBack;
                                 frontColor = Pal.sapBullet;
+                                hittable = false;
                                 lightningLength = 6;
                                 lightningCone = 20f;
                                 lightningDamage = 30;
-                            }};
-                        }});
-                    }};
                 }};
             }});
 
