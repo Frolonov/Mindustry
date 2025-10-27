@@ -3936,7 +3936,7 @@ public class UnitTypes{
             armor = 9f;
             hitSize = 46f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
-            targetAir = false;
+            targetAir = true;
 
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -3971,18 +3971,18 @@ public class UnitTypes{
                 y = -10f / 4f;
                 mirror = true;
                 rotate = true;
-                rotateSpeed = 0.4f;
-                reload = 70f;
+                alternate = false;
+                rotateSpeed = 2.4f;
+                reload = 30f;
                 layerOffset = -20f;
                 recoil = 1f;
-                rotationLimit = 22f;
+                rotationLimit = 82f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 40f;
-                shoot.shots = 3;
+                shoot.shots = 4;
                 shoot.shotDelay = 5f;
-                inaccuracy = 28f;
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -3997,75 +3997,13 @@ public class UnitTypes{
                     mirror = true;
                 }});
 
-                bullet = new BulletType(){{
-                    shootEffect = Fx.sparkShoot;
-                    smokeEffect = Fx.shootSmokeTitan;
-                    hitColor = Pal.suppress;
-                    shake = 1f;
-                    speed = 0f;
-                    keepVelocity = false;
-                    collidesAir = false;
-
-                    spawnUnit = new MissileUnitType("disrupt-missile"){{
-                        targetAir = false;
-                        speed = 4.6f;
-                        maxRange = 5f;
-                        outlineColor = Pal.darkOutline;
-                        health = 70;
-                        homingDelay = 10f;
-                        lowAltitude = true;
-                        engineSize = 3f;
-                        engineColor = trailColor = Pal.sapBulletBack;
-                        engineLayer = Layer.effect;
-                        deathExplosionEffect = Fx.none;
-                        loopSoundVolume = 0.1f;
-
-                        parts.add(new ShapePart(){{
-                            layer = Layer.effect;
-                            circle = true;
-                            y = -0.25f;
-                            radius = 1.5f;
-                            color = Pal.suppress;
-                            colorTo = Color.white;
-                            progress = PartProgress.life.curve(Interp.pow5In);
-                        }});
-
-                        parts.add(new RegionPart("-fin"){{
-                            mirror = true;
-                            progress = PartProgress.life.mul(3f).curve(Interp.pow5In);
-                            moveRot = 32f;
-                            rotation = -6f;
-                            moveY = 1.5f;
-                            x = 3f / 4f;
-                            y = -6f / 4f;
-                        }});
-
-                        weapons.add(new Weapon(){{
-                            shootCone = 360f;
-                            mirror = false;
-                            reload = 1f;
-                            shootOnDeath = true;
-                            bullet = new ExplosionBulletType(140f, 25f){{
-                                collidesAir = false;
-                                suppressionRange = 140f;
-                                shootEffect = new ExplosionEffect(){{
-                                    lifetime = 50f;
-                                    waveStroke = 5f;
-                                    waveLife = 8f;
-                                    waveColor = Color.white;
-                                    sparkColor = smokeColor = Pal.suppress;
-                                    waveRad = 40f;
-                                    smokeSize = 4f;
-                                    smokes = 7;
-                                    smokeSizeBase = 0f;
-                                    sparks = 10;
-                                    sparkRad = 40f;
-                                    sparkLen = 6f;
-                                    sparkStroke = 2f;
-                                }};
-                            }};
-                        }});
-                    }};
+                bullet = new LaserBoltBulletType(8f, 40){{
+                                backColor = Pal.sapBulletBack;
+                                frontColor = Pal.sapBullet;
+                                hittable = false;
+                                lightningLength = 6;
+                                lightningCone = 20f;
+                                lightningDamage = 30;
                 }};
             }});
 
