@@ -3936,7 +3936,7 @@ public class UnitTypes{
             armor = 9f;
             hitSize = 46f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
-            targetAir = false;
+            targetAir = true;
 
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -4006,16 +4006,21 @@ public class UnitTypes{
                     keepVelocity = false;
                     collidesAir = false;
 
-                    spawnUnit = new MissileUnitType("disrupt-missile"){{
+                    spawnUnit = new UnitType("disrupt-missile"){{
+                        aiController = FlyingFollowAI::new;
+                        envDisabled = 0;
+                        flying = true;
+                        drag = 0.07f;
+                        rotateSpeed = 2f;
+                        accel = 0.1f;
+                        hitSize = 46f;
                         targetAir = true;
                         circleTarget = true;
                         hitSize = 2f;
                         speed = 8.6f;
-                        maxRange = 5f;
                         outlineColor = Pal.darkOutline;
                         health = 400;
-                        homingDelay = 10f;
-                        lowAltitude = true;
+                        lowAltitude = false;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
