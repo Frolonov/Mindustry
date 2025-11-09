@@ -3958,6 +3958,7 @@ public class UnitTypes{
             health = 8000f;
             armor = 3f;
             hitSize = 46f;
+            fogRadius = 18f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -4020,14 +4021,14 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 330f;
+                reload = 360f;
                 layerOffset = -20f;
                 recoil = 0f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
                 shootY = 6f;
                 shootCone = 360f;
-                shoot = new ShootSpread(9, 9f);
+                shoot = new ShootSpread(6, 9f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4054,7 +4055,8 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        circleTarget = true;
+                        hitSize = 3f;
+                        circleTarget = false;
                         targetUnderBlocks = false;
                         isEnemy = false;
                         useUnitCap = false;
@@ -4065,18 +4067,18 @@ public class UnitTypes{
                         constructor = TimedKillUnit::create;
                         envEnabled = Env.any;
                         envDisabled = 0;
-                        physics = false;
+                        physics = true;
                         bounded = false;
                         trailLength = 7;
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 4f;
+                        speed = 2.5f;
                         drag = 0.02f;
-                        rotateSpeed = 2f;
+                        rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 120;
-                        lifetime = 420f;
+                        health = 100;
+                        lifetime = 480f;
                         fogRadius = 6f;
                         lowAltitude = true;
                         engineSize = 3f;
@@ -4109,8 +4111,9 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             mirror = false;
+                            rotate = false;
                             reload = 30f;
-                            bullet = new BasicBulletType(6f, 35){{
+                            bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
                                 pierce = true;
