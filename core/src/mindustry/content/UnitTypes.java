@@ -3955,7 +3955,7 @@ public class UnitTypes{
             speed = 0.7f;
             rotateSpeed = 2f;
             accel = 0.1f;
-            health = 8000f;
+            health = 9000f;
             armor = 3f;
             hitSize = 46f;
             fogRadius = 50f;
@@ -4056,7 +4056,7 @@ public class UnitTypes{
                         controller = u -> new FlyingAI();
                         BlockFlag[] targetFlags = {BlockFlag.turret, null};
                         hitSize = 3f;
-                        circleTarget = false;
+                        circleTarget = true;
                         targetUnderBlocks = false;
                         isEnemy = false;
                         useUnitCap = false;
@@ -4111,7 +4111,7 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             rotate = false;
-                            reload = 20f;
+                            reload = 15f;
                             bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
