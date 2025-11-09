@@ -3993,7 +3993,7 @@ public class UnitTypes{
                 controllable = false;
                 mirror = false;
                 x = 0;
-                y = 5f;
+                y = 18f;
                 rotate = true;
                 rotateSpeed = 2f;
                 reload = 20f;
@@ -4077,7 +4077,7 @@ public class UnitTypes{
                         drag = 0.02f;
                         rotateSpeed = 3f;
                         outlineColor = Pal.darkOutline;
-                        health = 280;
+                        health = 220;
                         lifetime = 540f;
                         fogRadius = 24f;
                         lowAltitude = true;
@@ -4112,11 +4112,11 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             reload = 30f;
-                            bullet = new BasicBulletType(5f, 35){{
+                            bullet = new BasicBulletType(5f, 30){{
                                 width = 6f;
                                 height = 10f;
                                 pierceArmor = true;
-                                suppressionRange = 140f;
+                                suppressionRange = 80f;
                                 lightning = 1;
                                 lightningLength = 7;
                                 lightningDamage = 25;
