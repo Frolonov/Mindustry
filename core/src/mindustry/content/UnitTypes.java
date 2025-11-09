@@ -3997,7 +3997,7 @@ public class UnitTypes{
                 rotate = true;
                 rotateSpeed = 0.4f;
                 alternate = false;
-                reload = 70f;
+                reload = 300f;
                 layerOffset = -20f;
                 recoil = 1f;
                 rotationLimit = 22f;
@@ -4005,7 +4005,7 @@ public class UnitTypes{
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 30f;
-                shoot.shots = 6;
+                shoot.shots = 5;
                 shoot.shotDelay = 6f;
                 inaccuracy = 2f;
 
@@ -4024,7 +4024,6 @@ public class UnitTypes{
 
                 bullet = new BulletType(){{
                     shootEffect = Fx.sparkShoot;
-                    smokeEffect = Fx.shootSmokeTitan;
                     hitColor = Pal.suppress;
                     shake = 1f;
                     speed = 0f;
@@ -4047,25 +4046,22 @@ public class UnitTypes{
                         physics = false;
                         bounded = false;
                         trailLength = 7;
-                        hidden = true;
+                        hidden = false;
                         hoverable = false;
                         circleTarget = true;
                         speed = 8f;
-                        rotateSpeed = 9f;
+                        rotateSpeed = 7f;
                         range = 48f;
-                        maxRange = 5f;
                         outlineColor = Pal.darkOutline;
-                        health = 600;
-                        lifetime = 720f;
-                        fogRadius = 32f;
-                        homingDelay = 5f;
+                        health = 400;
+                        lifetime = 540f;
+                        fogRadius = 40f;
                         lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
                         deathExplosionEffect = Fx.none;
-                        loopSound = Sounds.missileTrail;
-                        loopSoundVolume = 0.1f;
+                        deathSound = Sounds.none;
 
                         parts.add(new ShapePart(){{
                             layer = Layer.effect;
@@ -4091,14 +4087,17 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             mirror = false;
-                            reload = 6f;
-                            ejectEffect = Fx.casing1;
-                            bullet = new BasicBulletType(8f, 36){{
-                                width = 7f;
-                                height = 9f;
+                            reload = 15f;
+                            bullet = new BasicBulletType(6f, 24){{
+                                width = 9f;
+                                height = 14f;
                                 lifetime = 80f;
+                                hitColor = backColor = trailColor = Pal.suppress;
+                                frontColor = Color.white;
+                                trailWidth = 1.5f;
+                                trailLength = 5;
+                                hitEffect = despawnEffect = Fx.hitBulletColor;
                                 shootEffect = Fx.shootSmall;
-                                smokeEffect = Fx.shootSmallSmoke;
                             }};
                         }});
                     }};
