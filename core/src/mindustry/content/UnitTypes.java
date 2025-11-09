@@ -4033,10 +4033,14 @@ public class UnitTypes{
 
                     spawnUnit = new MissileUnitType("disrupt-missile"){{
                         targetAir = true;
-                        speed = 4.6f;
+                        speed = 8f;
+                        rotateSpeed = 6f;
+                        range = 48f;
                         maxRange = 5f;
                         outlineColor = Pal.darkOutline;
                         health = 600;
+                        lifetime = 540f;
+                        fogRadius = 32f;
                         homingDelay = 10f;
                         lowAltitude = true;
                         engineSize = 3f;
@@ -4066,28 +4070,17 @@ public class UnitTypes{
                         }});
 
                         weapons.add(new Weapon(){{
-                            shootCone = 360f;
+                            shootCone = 30f;
+                            shootSound = Sounds.blaster;
                             mirror = false;
-                            reload = 1f;
-                            shootOnDeath = true;
-                            bullet = new ExplosionBulletType(140f, 25f){{
-                                collidesAir = false;
-                                suppressionRange = 140f;
-                                shootEffect = new ExplosionEffect(){{
-                                    lifetime = 50f;
-                                    waveStroke = 5f;
-                                    waveLife = 8f;
-                                    waveColor = Color.white;
-                                    sparkColor = smokeColor = Pal.suppress;
-                                    waveRad = 40f;
-                                    smokeSize = 4f;
-                                    smokes = 7;
-                                    smokeSizeBase = 0f;
-                                    sparks = 10;
-                                    sparkRad = 40f;
-                                    sparkLen = 6f;
-                                    sparkStroke = 2f;
-                                }};
+                            reload = 6f;
+                            ejectEffect = Fx.casing1;
+                            bullet = new BasicBulletType(8f, 36){{
+                                width = 7f;
+                                height = 9f;
+                                lifetime = 45f;
+                                shootEffect = Fx.shootSmall;
+                                smokeEffect = Fx.shootSmallSmoke;
                             }};
                         }});
                     }};
