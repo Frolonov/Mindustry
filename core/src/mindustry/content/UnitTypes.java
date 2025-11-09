@@ -3991,6 +3991,7 @@ public class UnitTypes{
 
             weapons.add(new Weapon("disrupt-weapon"){{
                 shootSound = Sounds.missileLarge;
+                shootSoundVolume = 0.2f;
                 x = 78f / 4f;
                 y = -10f / 4f;
                 mirror = true;
@@ -4005,8 +4006,8 @@ public class UnitTypes{
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 30f;
-                shoot.shots = 3;
-                shoot.shotDelay = 1f;
+                shoot.shots = 6;
+                shoot.shotDelay = 6f;
                 inaccuracy = 2f;
 
                 parts.add(new RegionPart("-blade"){{
@@ -4031,22 +4032,40 @@ public class UnitTypes{
                     keepVelocity = false;
                     collidesAir = false;
 
-                    spawnUnit = new MissileUnitType("disrupt-missile"){{
-                        targetAir = true;
+                    spawnUnit = new UnitType("disrupt-missile"){{
+                        createWreck = false;
+                        createScorch = false;
+                        logicControllable = false;
+                        isEnemy = false;
+                        useUnitCap = false;
+                        drawCell = false;
+                        drawMinimap = false;
+                        allowedInPayloads = false;
+                        flying = true;
+                        constructor = TimedKillUnit::create;
+                        envEnabled = Env.any;
+                        envDisabled = Env.none;
+                        physics = false;
+                        bounded = false;
+                        trailLength = 7;
+                        hidden = true;
+                        hoverable = false;
+                        circleTarget = true;
                         speed = 8f;
-                        rotateSpeed = 6f;
+                        rotateSpeed = 9f;
                         range = 48f;
                         maxRange = 5f;
                         outlineColor = Pal.darkOutline;
                         health = 600;
-                        lifetime = 540f;
+                        lifetime = 720f;
                         fogRadius = 32f;
-                        homingDelay = 10f;
+                        homingDelay = 5f;
                         lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
                         deathExplosionEffect = Fx.none;
+                        loopSound = Sounds.missileTrail;
                         loopSoundVolume = 0.1f;
 
                         parts.add(new ShapePart(){{
@@ -4078,7 +4097,7 @@ public class UnitTypes{
                             bullet = new BasicBulletType(8f, 36){{
                                 width = 7f;
                                 height = 9f;
-                                lifetime = 45f;
+                                lifetime = 80f;
                                 shootEffect = Fx.shootSmall;
                                 smokeEffect = Fx.shootSmallSmoke;
                             }};
