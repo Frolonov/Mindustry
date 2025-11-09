@@ -3991,17 +3991,15 @@ public class UnitTypes{
                 x = 78f / 4f;
                 y = -10f / 4f;
                 mirror = true;
-                rotate = true;
-                rotateSpeed = 0.4f;
+                rotate = false;
                 alternate = false;
                 reload = 360f;
                 layerOffset = -20f;
                 recoil = 0f;
-                rotationLimit = 30f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
-                shootCone = 60f;
+                shootCone = 360f;
                 shoot = new ShootSpread(6, 8f);
 
                 parts.add(new RegionPart("-blade"){{
@@ -4020,7 +4018,6 @@ public class UnitTypes{
                 bullet = new BulletType(){{
                     shootEffect = Fx.sparkShoot;
                     hitColor = Pal.suppress;
-                    shake = 1f;
                     speed = 0f;
                     keepVelocity = false;
                     collidesAir = false;
@@ -4032,7 +4029,7 @@ public class UnitTypes{
                         controller = u -> new FlyingAI();
                         circleTarget = true;
                         targetUnderBlocks = false;
-                        targetFlags = new BlockFlag[]{BlockFlag.repair, BlockFlag.turret, BlockFlag.storage, BlockFlag.core};
+                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.generator, BlockFlag.core, null};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4053,7 +4050,7 @@ public class UnitTypes{
                         rotateSpeed = 3f;
                         outlineColor = Pal.darkOutline;
                         health = 280;
-                        lifetime = 480f;
+                        lifetime = 540f;
                         fogRadius = 24f;
                         lowAltitude = true;
                         engineSize = 3f;
@@ -4087,13 +4084,13 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             reload = 30f;
-                            bullet = new BasicBulletType(5f, 40){{
+                            bullet = new BasicBulletType(5f, 35){{
                                 width = 6f;
                                 height = 10f;
                                 pierceArmor = true;
                                 suppressionRange = 140f;
                                 lightning = 1;
-                                lightningLength = 5;
+                                lightningLength = 7;
                                 lightningDamage = 25;
                                 lightningCone = 20f;
                                 lifetime = 40f;
