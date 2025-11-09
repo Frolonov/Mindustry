@@ -3988,22 +3988,22 @@ public class UnitTypes{
 
             weapons.add(new Weapon("quell-weapon"){{
                 shootSound = Sounds.blaster;
-                predictTarget = false;
-                autoTarget = true;
-                controllable = false;
                 mirror = false;
                 x = 0;
-                y = 21f;
+                y = 22f;
                 rotate = true;
                 rotateSpeed = 2f;
                 reload = 15f;
                 layerOffset = -1f;
                 recoil = 1f;
-                rotationLimit = 60f;
-                bullet = new BasicBulletType(5f, 50){{
-                    width = 7f;
-                    height = 12f;
-                    lifetime = 24f;
+                rotationLimit = 80f;
+                bullet = new BasicBulletType(5f, 60){{
+                    width = 8f;
+                    height = 15f;
+                    lifetime = 28f;
+                    pierce = true;
+                    pierceBuilding = true;
+                    pierceCap = 2;
                     shootEffect = Fx.sparkShoot;
                     smokeEffect = Fx.shootBigSmoke;
                     hitColor = backColor = trailColor = Pal.suppress;
@@ -4055,9 +4055,9 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        circleTarget = true;
+                        circleTarget = false;
                         targetUnderBlocks = false;
-                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, BlockFlag.core, null};
+                        targetFlags = new BlockFlag[]{BlockFlag.repair, BlockFlag.generator, BlockFlag.factory, null};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4117,10 +4117,8 @@ public class UnitTypes{
                                 height = 10f;
                                 pierceArmor = true;
                                 suppressionRange = 100f;
-                                lightning = 1;
-                                lightningLength = 7;
-                                lightningDamage = 25;
-                                lightningCone = 20f;
+                                splashDamage = 30f;
+                                splashDamageRadius = 24f;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
