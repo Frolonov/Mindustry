@@ -3990,8 +3990,7 @@ public class UnitTypes{
             }
 
             weapons.add(new Weapon("disrupt-weapon"){{
-                shootSound = Sounds.missileLarge;
-                shootSoundVolume = 0.2f;
+                shootSound = Sounds.blaster;
                 x = 78f / 4f;
                 y = -10f / 4f;
                 mirror = true;
