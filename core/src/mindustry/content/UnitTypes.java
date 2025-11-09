@@ -3995,7 +3995,7 @@ public class UnitTypes{
                 rotate = true;
                 rotateSpeed = 0.4f;
                 alternate = false;
-                reload = 360f;
+                reload = 240f;
                 layerOffset = -20f;
                 recoil = 1f;
                 rotationLimit = 22f;
@@ -4003,8 +4003,8 @@ public class UnitTypes{
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 30f;
-                shoot.shots = 5;
-                shoot.shotDelay = 6f;
+                shoot.shots = 6;
+                shoot.shotDelay = 4f;
                 inaccuracy = 2f;
 
                 parts.add(new RegionPart("-blade"){{
@@ -4046,15 +4046,15 @@ public class UnitTypes{
                         physics = false;
                         bounded = false;
                         trailLength = 7;
-                        hidden = false;
+                        hidden = true;
                         hoverable = false;
-                        speed = 8f;
-                        rotateSpeed = 7f;
+                        speed = 7f;
+                        rotateSpeed = 6f;
                         range = 48f;
                         outlineColor = Pal.darkOutline;
-                        health = 400;
-                        lifetime = 480f;
-                        fogRadius = 32f;
+                        health = 200;
+                        lifetime = 360f;
+                        fogRadius = 24f;
                         lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4086,15 +4086,18 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             mirror = false;
-                            reload = 20f;
-                            bullet = new BasicBulletType(6f, 24){{
+                            reload = 30f;
+                            bullet = new BasicBulletType(6f, 40){{
                                 width = 6f;
                                 height = 10f;
                                 suppressionRange = 140f;
-                                collidesTiles = false;
-                                scaleLife = true;
-                                splashDamage = 20f;
-                                splashDamageRadius = 20f;
+                                pierce = true;
+                                pierceBuilding = true;
+                                pierceCap = 2;
+                                lightning = 1;
+                                lightningLength = 8;
+                                lightningDamage = 30;
+                                lightningCone = 20f;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
