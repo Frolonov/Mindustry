@@ -3960,8 +3960,6 @@ public class UnitTypes{
             armor = 9f;
             hitSize = 46f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
-            targetAir = false;
-
             engineSize = 6f;
             engineOffset = 25.25f;
 
@@ -3997,7 +3995,7 @@ public class UnitTypes{
                 rotate = true;
                 rotateSpeed = 0.4f;
                 alternate = false;
-                reload = 300f;
+                reload = 360f;
                 layerOffset = -20f;
                 recoil = 1f;
                 rotationLimit = 22f;
@@ -4040,6 +4038,7 @@ public class UnitTypes{
                         drawMinimap = false;
                         allowedInPayloads = false;
                         flying = true;
+                        circleTarget = true;
                         constructor = TimedKillUnit::create;
                         envEnabled = Env.any;
                         envDisabled = Env.none;
@@ -4054,8 +4053,8 @@ public class UnitTypes{
                         range = 48f;
                         outlineColor = Pal.darkOutline;
                         health = 400;
-                        lifetime = 540f;
-                        fogRadius = 40f;
+                        lifetime = 480f;
+                        fogRadius = 32f;
                         lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4087,16 +4086,20 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             mirror = false;
-                            reload = 15f;
+                            reload = 20f;
                             bullet = new BasicBulletType(6f, 24){{
-                                width = 9f;
-                                height = 14f;
-                                lifetime = 80f;
+                                width = 6f;
+                                height = 10f;
+                                suppressionRange = 140f;
+                                collidesTiles = false;
+                                splashDamage = 20f;
+                                splashDamageRadius = 20f;
+                                lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
-                                trailWidth = 1.5f;
-                                trailLength = 5;
-                                hitEffect = despawnEffect = Fx.hitBulletColor;
+                                trailWidth = 0.5f;
+                                trailLength = 3;
+                                hitEffect = despawnEffect = Fx.flakExplosion;
                                 shootEffect = Fx.shootSmall;
                             }};
                         }});
