@@ -3986,6 +3986,34 @@ public class UnitTypes{
                 }});
             }
 
+            weapons.add(new Weapon("quell-weapon"){{
+                shootSound = Sounds.blaster;
+                predictTarget = false;
+                autoTarget = true;
+                controllable = false;
+                mirror = false;
+                x = 0;
+                y = 5f;
+                rotate = true;
+                rotateSpeed = 2f;
+                reload = 20f;
+                layerOffset = -0.001f;
+                recoil = 1f;
+                rotationLimit = 60f;
+                bullet = new BasicBulletType(5f, 40){{
+                    width = 7f;
+                    height = 12f;
+                    lifetime = 24f;
+                    shootEffect = Fx.sparkShoot;
+                    smokeEffect = Fx.shootBigSmoke;
+                    hitColor = backColor = trailColor = Pal.suppress;
+                    frontColor = Color.white;
+                    trailWidth = 1.5f;
+                    trailLength = 5;
+                    hitEffect = despawnEffect = Fx.hitBulletColor;
+                }};
+            }});
+
             weapons.add(new Weapon("disrupt-weapon"){{
                 shootSound = Sounds.missile;
                 x = 78f / 4f;
