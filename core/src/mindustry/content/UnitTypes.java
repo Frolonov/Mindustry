@@ -3952,11 +3952,11 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 0.8f;
+            speed = 0.7f;
             rotateSpeed = 2f;
             accel = 0.1f;
             health = 8000f;
-            armor = 4f;
+            armor = 3f;
             hitSize = 46f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
@@ -4056,7 +4056,6 @@ public class UnitTypes{
                         controller = u -> new FlyingAI();
                         circleTarget = true;
                         targetUnderBlocks = false;
-                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.storage, null};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4072,11 +4071,11 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 3f;
+                        speed = 4f;
                         drag = 0.02f;
-                        rotateSpeed = 3f;
+                        rotateSpeed = 2f;
                         outlineColor = Pal.darkOutline;
-                        health = 180;
+                        health = 120;
                         lifetime = 420f;
                         fogRadius = 6f;
                         lowAltitude = true;
