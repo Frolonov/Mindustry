@@ -4073,13 +4073,13 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 2.5f;
+                        speed = 3f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 90;
-                        lifetime = 480f;
-                        fogRadius = 6f;
+                        health = 120;
+                        lifetime = 540f;
+                        fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
@@ -4109,6 +4109,8 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
+                            x = 0;
+                            y = 2;
                             mirror = false;
                             rotate = false;
                             reload = 15f;
