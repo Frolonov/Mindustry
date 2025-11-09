@@ -4032,13 +4032,13 @@ public class UnitTypes{
                         createWreck = false;
                         createScorch = false;
                         logicControllable = false;
+                        controller = u -> new DefenderAI();
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
                         drawMinimap = false;
                         allowedInPayloads = false;
                         flying = true;
-                        circleTarget = true;
                         constructor = TimedKillUnit::create;
                         envEnabled = Env.any;
                         envDisabled = Env.none;
@@ -4047,7 +4047,6 @@ public class UnitTypes{
                         trailLength = 7;
                         hidden = false;
                         hoverable = false;
-                        circleTarget = true;
                         speed = 8f;
                         rotateSpeed = 7f;
                         range = 48f;
@@ -4092,6 +4091,7 @@ public class UnitTypes{
                                 height = 10f;
                                 suppressionRange = 140f;
                                 collidesTiles = false;
+                                scaleLife = true;
                                 splashDamage = 20f;
                                 splashDamageRadius = 20f;
                                 lifetime = 40f;
