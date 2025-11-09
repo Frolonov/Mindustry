@@ -3996,6 +3996,7 @@ public class UnitTypes{
                 mirror = true;
                 rotate = true;
                 rotateSpeed = 0.4f;
+                alternate = false;
                 reload = 70f;
                 layerOffset = -20f;
                 recoil = 1f;
@@ -4003,10 +4004,10 @@ public class UnitTypes{
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
-                shootCone = 40f;
+                shootCone = 30f;
                 shoot.shots = 3;
-                shoot.shotDelay = 5f;
-                inaccuracy = 28f;
+                shoot.shotDelay = 1f;
+                inaccuracy = 2f;
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4031,11 +4032,11 @@ public class UnitTypes{
                     collidesAir = false;
 
                     spawnUnit = new MissileUnitType("disrupt-missile"){{
-                        targetAir = false;
+                        targetAir = true;
                         speed = 4.6f;
                         maxRange = 5f;
                         outlineColor = Pal.darkOutline;
-                        health = 70;
+                        health = 600;
                         homingDelay = 10f;
                         lowAltitude = true;
                         engineSize = 3f;
