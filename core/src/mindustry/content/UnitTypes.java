@@ -4032,7 +4032,8 @@ public class UnitTypes{
                         createWreck = false;
                         createScorch = false;
                         logicControllable = false;
-                        controller = u -> new DefenderAI();
+                        controller = u -> new FlyingAI();
+                        circleTarget = true;
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
