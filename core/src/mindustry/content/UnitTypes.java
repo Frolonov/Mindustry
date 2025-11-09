@@ -3949,7 +3949,6 @@ public class UnitTypes{
         disrupt = new ErekirUnitType("disrupt"){{
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
-
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
@@ -3988,7 +3987,7 @@ public class UnitTypes{
             }
 
             weapons.add(new Weapon("disrupt-weapon"){{
-                shootSound = Sounds.blaster;
+                shootSound = Sounds.missile;
                 x = 78f / 4f;
                 y = -10f / 4f;
                 mirror = true;
@@ -4003,9 +4002,7 @@ public class UnitTypes{
                 shootWarmupSpeed = 0.1f;
                 shootY = 2f;
                 shootCone = 30f;
-                shoot.shots = 6;
-                shoot.shotDelay = 4f;
-                inaccuracy = 2f;
+                shoot = new ShootSpread(6, 8f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4042,16 +4039,16 @@ public class UnitTypes{
                         flying = true;
                         constructor = TimedKillUnit::create;
                         envEnabled = Env.any;
-                        envDisabled = Env.none;
+                        envDisabled = 0;
                         physics = false;
                         bounded = false;
                         trailLength = 7;
                         hidden = true;
                         hoverable = false;
-                        accel = 0.2f;
+                        accel = 0.1f;
                         speed = 6f;
                         drag = 0.02f;
-                        rotateSpeed = 4f;
+                        rotateSpeed = 3f;
                         range = 40f;
                         outlineColor = Pal.darkOutline;
                         health = 240;
@@ -4088,14 +4085,14 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             mirror = false;
-                            reload = 20f;
-                            bullet = new BasicBulletType(6f, 50){{
+                            reload = 30f;
+                            bullet = new BasicBulletType(6f, 45){{
                                 width = 6f;
                                 height = 10f;
                                 suppressionRange = 140f;
                                 lightning = 1;
-                                lightningLength = 8;
-                                lightningDamage = 30;
+                                lightningLength = 6;
+                                lightningDamage = 25;
                                 lightningCone = 20f;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
