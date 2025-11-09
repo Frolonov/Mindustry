@@ -3952,11 +3952,11 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 1f;
+            speed = 0.8f;
             rotateSpeed = 2f;
             accel = 0.1f;
-            health = 12000f;
-            armor = 9f;
+            health = 8000f;
+            armor = 4f;
             hitSize = 46f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
@@ -3993,7 +3993,7 @@ public class UnitTypes{
                 y = 22f;
                 rotate = true;
                 rotateSpeed = 2f;
-                reload = 15f;
+                reload = 12f;
                 layerOffset = -1f;
                 recoil = 1f;
                 rotationLimit = 80f;
@@ -4020,14 +4020,14 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 420f;
+                reload = 330f;
                 layerOffset = -20f;
                 recoil = 0f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
-                shootY = 2f;
+                shootY = 6f;
                 shootCone = 360f;
-                shoot = new ShootSpread(6, 8f);
+                shoot = new ShootSpread(9, 9f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4056,7 +4056,7 @@ public class UnitTypes{
                         controller = u -> new FlyingAI();
                         circleTarget = true;
                         targetUnderBlocks = false;
-                        targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.storage, null};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4076,9 +4076,9 @@ public class UnitTypes{
                         drag = 0.02f;
                         rotateSpeed = 3f;
                         outlineColor = Pal.darkOutline;
-                        health = 240;
-                        lifetime = 480f;
-                        fogRadius = 24f;
+                        health = 180;
+                        lifetime = 420f;
+                        fogRadius = 6f;
                         lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4111,7 +4111,7 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             reload = 30f;
-                            bullet = new BasicBulletType(5f, 32){{
+                            bullet = new BasicBulletType(6f, 35){{
                                 width = 6f;
                                 height = 10f;
                                 pierce = true;
