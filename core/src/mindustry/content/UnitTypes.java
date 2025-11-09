@@ -3958,7 +3958,7 @@ public class UnitTypes{
             health = 8000f;
             armor = 3f;
             hitSize = 46f;
-            fogRadius = 38f;
+            fogRadius = 50f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -4077,7 +4077,7 @@ public class UnitTypes{
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 100;
+                        health = 90;
                         lifetime = 480f;
                         fogRadius = 6f;
                         engineSize = 3f;
@@ -4111,7 +4111,7 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             rotate = false;
-                            reload = 30f;
+                            reload = 20f;
                             bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
