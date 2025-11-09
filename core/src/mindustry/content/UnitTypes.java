@@ -4031,6 +4031,8 @@ public class UnitTypes{
                         logicControllable = false;
                         controller = u -> new FlyingAI();
                         circleTarget = true;
+                        targetUnderBlocks = false;
+                        targetFlags = new BlockFlag[]{BlockFlag.repair, BlockFlag.turret, BlockFlag.storage, BlockFlag.core};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4085,7 +4087,7 @@ public class UnitTypes{
                             shootSound = Sounds.blaster;
                             mirror = false;
                             reload = 30f;
-                            bullet = new BasicBulletType(5f, 30){{
+                            bullet = new BasicBulletType(5f, 40){{
                                 width = 6f;
                                 height = 10f;
                                 pierceArmor = true;
