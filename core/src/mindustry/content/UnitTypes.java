@@ -3958,7 +3958,7 @@ public class UnitTypes{
             health = 8000f;
             armor = 3f;
             hitSize = 46f;
-            fogRadius = 18f;
+            fogRadius = 38f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -3998,7 +3998,7 @@ public class UnitTypes{
                 layerOffset = -1f;
                 recoil = 1f;
                 rotationLimit = 80f;
-                bullet = new BasicBulletType(5f, 60){{
+                bullet = new BasicBulletType(5f, 50){{
                     width = 8f;
                     height = 15f;
                     lifetime = 28f;
@@ -4049,12 +4049,12 @@ public class UnitTypes{
                     speed = 0f;
                     keepVelocity = false;
                     collidesAir = false;
-
                     spawnUnit = new UnitType("disrupt-missile"){{
                         createWreck = false;
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
+                        BlockFlag[] targetFlags = {BlockFlag.turret, null};
                         hitSize = 3f;
                         circleTarget = false;
                         targetUnderBlocks = false;
@@ -4080,7 +4080,6 @@ public class UnitTypes{
                         health = 100;
                         lifetime = 480f;
                         fogRadius = 6f;
-                        lowAltitude = true;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
