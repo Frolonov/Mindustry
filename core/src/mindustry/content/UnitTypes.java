@@ -4001,9 +4001,8 @@ public class UnitTypes{
                     width = 8f;
                     height = 15f;
                     lifetime = 28f;
-                    pierce = true;
-                    pierceBuilding = true;
-                    pierceCap = 2;
+                    splashDamage = 30f;
+                    splashDamageRadius = 24f;
                     shootEffect = Fx.sparkShoot;
                     smokeEffect = Fx.shootBigSmoke;
                     hitColor = backColor = trailColor = Pal.suppress;
@@ -4021,7 +4020,7 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 360f;
+                reload = 420f;
                 layerOffset = -20f;
                 recoil = 0f;
                 minWarmup = 0.95f;
@@ -4055,9 +4054,9 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        circleTarget = false;
+                        circleTarget = true;
                         targetUnderBlocks = false;
-                        targetFlags = new BlockFlag[]{BlockFlag.repair, BlockFlag.generator, BlockFlag.factory, null};
+                        targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
                         isEnemy = false;
                         useUnitCap = false;
                         drawCell = false;
@@ -4073,12 +4072,12 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 4.5f;
+                        speed = 3f;
                         drag = 0.02f;
                         rotateSpeed = 3f;
                         outlineColor = Pal.darkOutline;
                         health = 240;
-                        lifetime = 540f;
+                        lifetime = 480f;
                         fogRadius = 24f;
                         lowAltitude = true;
                         engineSize = 3f;
@@ -4115,10 +4114,9 @@ public class UnitTypes{
                             bullet = new BasicBulletType(5f, 32){{
                                 width = 6f;
                                 height = 10f;
-                                pierceArmor = true;
-                                suppressionRange = 100f;
-                                splashDamage = 30f;
-                                splashDamageRadius = 24f;
+                                pierce = true;
+                                pierceBuilding = true;
+                                pierceCap = 2;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
