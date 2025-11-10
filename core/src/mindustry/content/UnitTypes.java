@@ -4023,7 +4023,7 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 360f;
+                reload = 210f;
                 layerOffset = -20f;
                 recoil = 0f;
                 minWarmup = 0.95f;
@@ -4074,13 +4074,13 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 2f;
+                        speed = 1f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
                         health = 120;
                         armor = 3f;
-                        lifetime = 540f;
+                        lifetime = 240f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
