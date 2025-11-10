@@ -4001,7 +4001,7 @@ public class UnitTypes{
                 bullet = new BasicBulletType(5f, 40){{
                     width = 8f;
                     height = 15f;
-                    lifetime = 28f;
+                    lifetime = 32f;
                     pierceArmor = true;
                     lightning = 1;
                     lightningCone = 20f;
@@ -4028,7 +4028,7 @@ public class UnitTypes{
                 recoil = 0f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
-                shootY = 26f;
+                shootY = 30f;
                 shootCone = 360f;
                 shoot = new ShootSpread(6, 9f);
 
@@ -4056,7 +4056,7 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        BlockFlag[] targetFlags = {BlockFlag.turret, BlockFlag.storage, null};
+                        BlockFlag[] targetFlags = {null};
                         hitSize = 3f;
                         circleTarget = false;
                         targetUnderBlocks = false;
@@ -4117,12 +4117,9 @@ public class UnitTypes{
                             mirror = false;
                             rotate = false;
                             reload = 12f;
-                            bullet = new BasicBulletType(6f, 40){{
+                            bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
-                                pierce = true;
-                                pierceBuilding = true;
-                                pierceCap = 2;
                                 splashDamage = 20f;
                                 splashDamageRadius = 16f;
                                 lifetime = 40f;
