@@ -3997,12 +3997,15 @@ public class UnitTypes{
                 reload = 12f;
                 layerOffset = -1f;
                 recoil = 1f;
-                rotationLimit = 80f;
-                bullet = new BasicBulletType(5f, 40){{
+                bullet = new BasicBulletType(5f, 0){{
                     width = 8f;
                     height = 15f;
                     lifetime = 32f;
                     pierceArmor = true;
+                    scaleLife = true;
+                    collidesTiles = false;
+                    splashDamage = 40f;
+                    splashDamageRadius = 32f;
                     lightning = 1;
                     lightningCone = 20f;
                     lightningDamage = 30;
@@ -4023,11 +4026,9 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 210f;
+                reload = 240f;
                 layerOffset = -20f;
                 recoil = 0f;
-                minWarmup = 0.95f;
-                shootWarmupSpeed = 0.1f;
                 shootY = 30f;
                 shootCone = 360f;
                 shoot = new ShootSpread(6, 9f);
@@ -4080,7 +4081,7 @@ public class UnitTypes{
                         outlineColor = Pal.darkOutline;
                         health = 120;
                         armor = 3f;
-                        lifetime = 240f;
+                        lifetime = 300f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
