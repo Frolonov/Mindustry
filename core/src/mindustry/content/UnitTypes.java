@@ -4056,7 +4056,6 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        BlockFlag[] targetFlags = {null};
                         hitSize = 3f;
                         circleTarget = false;
                         targetUnderBlocks = false;
@@ -4075,11 +4074,11 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 3f;
+                        speed = 2f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 180;
+                        health = 120;
                         armor = 3f;
                         lifetime = 540f;
                         fogRadius = 12f;
@@ -4120,7 +4119,7 @@ public class UnitTypes{
                             bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
-                                splashDamage = 20f;
+                                splashDamage = 15f;
                                 splashDamageRadius = 16f;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
