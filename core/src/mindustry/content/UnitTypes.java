@@ -3952,13 +3952,13 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 0.7f;
+            speed = 0.9f;
             rotateSpeed = 2f;
             accel = 0.1f;
-            health = 9000f;
-            armor = 3f;
+            health = 11000f;
+            armor = 12f;
             hitSize = 46f;
-            fogRadius = 50f;
+            fogRadius = 56f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
             engineSize = 6f;
             engineOffset = 25.25f;
@@ -3967,8 +3967,8 @@ public class UnitTypes{
             int parts = 10;
 
             abilities.add(new SuppressionFieldAbility(){{
-                reload = 60 * 15f;
-                range = 320f;
+                reload = 60 * 8f;
+                range = 240f;
                 orbRadius = orbRad;
                 particleSize = partRad;
                 y = 10f;
@@ -3998,12 +3998,14 @@ public class UnitTypes{
                 layerOffset = -1f;
                 recoil = 1f;
                 rotationLimit = 80f;
-                bullet = new BasicBulletType(5f, 50){{
+                bullet = new BasicBulletType(5f, 40){{
                     width = 8f;
                     height = 15f;
                     lifetime = 28f;
-                    splashDamage = 30f;
-                    splashDamageRadius = 24f;
+                    pierceArmor = true;
+                    lightning = 1;
+                    lightningCone = 20f;
+                    lightningDamage = 30;
                     shootEffect = Fx.sparkShoot;
                     smokeEffect = Fx.shootBigSmoke;
                     hitColor = backColor = trailColor = Pal.suppress;
@@ -4026,7 +4028,7 @@ public class UnitTypes{
                 recoil = 0f;
                 minWarmup = 0.95f;
                 shootWarmupSpeed = 0.1f;
-                shootY = 6f;
+                shootY = 26f;
                 shootCone = 360f;
                 shoot = new ShootSpread(6, 9f);
 
@@ -4054,9 +4056,9 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        BlockFlag[] targetFlags = {BlockFlag.turret, null};
+                        BlockFlag[] targetFlags = {BlockFlag.turret, BlockFlag.storage, null};
                         hitSize = 3f;
-                        circleTarget = true;
+                        circleTarget = false;
                         targetUnderBlocks = false;
                         isEnemy = false;
                         useUnitCap = false;
@@ -4077,7 +4079,8 @@ public class UnitTypes{
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 120;
+                        health = 180;
+                        armor = 3f;
                         lifetime = 540f;
                         fogRadius = 12f;
                         engineSize = 3f;
@@ -4113,13 +4116,15 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            reload = 15f;
-                            bullet = new BasicBulletType(6f, 30){{
+                            reload = 12f;
+                            bullet = new BasicBulletType(6f, 40){{
                                 width = 6f;
                                 height = 10f;
                                 pierce = true;
                                 pierceBuilding = true;
                                 pierceCap = 2;
+                                splashDamage = 20f;
+                                splashDamageRadius = 16f;
                                 lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
