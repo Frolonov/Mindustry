@@ -4031,10 +4031,7 @@ public class UnitTypes{
                 recoil = 0f;
                 shootY = 30f;
                 shootCone = 360f;
-                public int checkstrength(Unit unit){
-                    int spawn_multiplier = Mathf.floor(5 * Mathf.clamp((unit.healthf()-0.2)/0.8)) + 1;
-                    return spawn_multiplier;
-                };
+                
                 shoot = new ShootSpread(spawn_multiplier, 9f);
 
                 parts.add(new RegionPart("-blade"){{
@@ -4476,4 +4473,9 @@ public class UnitTypes{
 
         //endregion
     }
+}
+
+public int checkstrength(Unit unit){
+    int spawn_multiplier = Mathf.floor(5 * Mathf.clamp((unit.healthf()-0.2)/0.8)) + 1;
+    return spawn_multiplier;
 }
