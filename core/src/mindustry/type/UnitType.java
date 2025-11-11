@@ -1071,6 +1071,11 @@ public class UnitType extends UnlockableContent implements Senseable{
         sample = constructor.get();
     }
 
+    public float checkStrength(Unit unit){
+        strength = Mathf.clamp(unit.healthf());
+        return strength;
+    }
+    
     public float estimateDps(){
         //calculate estimated DPS for one target based on weapons
         if(dpsEstimate < 0){
