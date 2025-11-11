@@ -83,6 +83,8 @@ public class UnitType extends UnlockableContent implements Senseable{
     missileAccelTime = 0f,
     /** raw health amount */
     health = 200f,
+    /** percentage health */
+    strength = 1.0f,    
     /** incoming damage is reduced by this amount */
     armor = 0f,
     /** minimum range of any weapon; used for approaching targets. can be overridden by setting a value > 0. */
@@ -1067,11 +1069,6 @@ public class UnitType extends UnlockableContent implements Senseable{
 
         //only do this after everything else was initialized
         sample = constructor.get();
-    }
-
-    public float checkhealth(Unit unit){
-        float strength = Mathf.clamp(unit.healthf());
-        return strength;
     }
 
     public float estimateDps(){
