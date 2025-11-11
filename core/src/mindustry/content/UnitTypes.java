@@ -3994,7 +3994,7 @@ public class UnitTypes{
                 y = 22f;
                 rotate = true;
                 rotateSpeed = 2f;
-                reload = 12f;
+                reload = 15f;
                 layerOffset = -1f;
                 recoil = 1f;
                 bullet = new BasicBulletType(5f, 0){{
@@ -4005,7 +4005,7 @@ public class UnitTypes{
                     scaleLife = true;
                     collidesTiles = false;
                     splashDamage = 40f;
-                    splashDamageRadius = 32f;
+                    splashDamageRadius = 24f;
                     lightning = 1;
                     lightningCone = 20f;
                     lightningDamage = 30;
@@ -4031,7 +4031,8 @@ public class UnitTypes{
                 recoil = 0f;
                 shootY = 30f;
                 shootCone = 360f;
-                shoot = new ShootSpread(6, 9f);
+                spawn_multiplier = Mathf.floor(5 * Mathf.clamp((unit.healthf()-0.2)/0.8)) + 1;
+                shoot = new ShootSpread(spawn_multiplier, 9f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4116,7 +4117,7 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            reload = 12f;
+                            reload = 15f;
                             bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
