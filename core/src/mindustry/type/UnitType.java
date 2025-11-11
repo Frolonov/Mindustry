@@ -53,6 +53,8 @@ public class UnitType extends UnlockableContent implements Senseable{
     /** The environment flags that this unit *cannot* function in. If the env matches any of these, it will explode or be disabled. */
     public int envDisabled = Env.scorching;
 
+    /** real time health in percentage */
+    public float strength = 0.999f,
     /** movement speed (world units/t) */
     public float speed = 1.1f,
     /** multiplier for speed when boosting */
@@ -83,8 +85,6 @@ public class UnitType extends UnlockableContent implements Senseable{
     missileAccelTime = 0f,
     /** raw health amount */
     health = 200f,
-    /** real time health in percentage */
-    public float strength = 1f,
     /** incoming damage is reduced by this amount */
     armor = 0f,
     /** minimum range of any weapon; used for approaching targets. can be overridden by setting a value > 0. */
