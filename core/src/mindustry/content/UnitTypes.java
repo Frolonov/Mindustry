@@ -3952,10 +3952,10 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 0.9f;
+            speed = 1f;
             rotateSpeed = 2f;
             accel = 0.1f;
-            health = 11000f;
+            health = 10000f;
             armor = 12f;
             hitSize = 46f;
             fogRadius = 56f;
@@ -4001,21 +4001,20 @@ public class UnitTypes{
                     width = 8f;
                     height = 15f;
                     lifetime = 32f;
-                    pierceArmor = true;
                     scaleLife = true;
                     collidesTiles = false;
-                    splashDamage = 40f;
+                    splashDamage = 30f;
                     splashDamageRadius = 24f;
                     lightning = 1;
                     lightningCone = 20f;
-                    lightningDamage = 30;
+                    lightningDamage = 40;
                     shootEffect = Fx.sparkShoot;
                     smokeEffect = Fx.shootBigSmoke;
                     hitColor = backColor = trailColor = Pal.suppress;
                     frontColor = Color.white;
                     trailWidth = 1.5f;
                     trailLength = 5;
-                    hitEffect = despawnEffect = Fx.hitBulletColor;
+                    hitEffect = despawnEffect = Fx.flakExplosion;
                 }};
             }});
 
@@ -4026,7 +4025,7 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 330f;
+                reload = 540f;
                 layerOffset = -20f;
                 recoil = 0f;
                 shootY = 30f;
@@ -4058,7 +4057,7 @@ public class UnitTypes{
                         logicControllable = false;
                         controller = u -> new FlyingAI();
                         hitSize = 3f;
-                        circleTarget = false;
+                        circleTarget = true;
                         targetUnderBlocks = false;
                         isEnemy = false;
                         useUnitCap = false;
@@ -4075,13 +4074,13 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 0.6f;
+                        speed = 0.8f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
                         health = 150;
                         armor = 3f;
-                        lifetime = 360f;
+                        lifetime = 480f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4112,24 +4111,27 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
-                            reload = 12f;
-                            shootStatus = StatusEffects.melting;
+                            reload = 15f;
+                            shootStatus = StatusEffects.burning;
                             shootStatusDuration = 90f;
                             x = 0;
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(6f, 30){{
+                            bullet = new BasicBulletType(6f, 35){{
                                 width = 6f;
                                 height = 10f;
-                                splashDamage = 15f;
-                                splashDamageRadius = 16f;
-                                lifetime = 48f;
+                                homingPower = 0.2f;
+                                pierce = true;
+                                pierceBuilding = true;
+                                pierceArmor = true;
+                                pierceCap = 2;
+                                lifetime = 44f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
                                 trailLength = 3;
-                                hitEffect = despawnEffect = Fx.flakExplosion;
+                                hitEffect = despawnEffect = Fx.hitBulletColor;
                                 shootEffect = Fx.shootSmall;
                             }};
                         }});
