@@ -3994,7 +3994,7 @@ public class UnitTypes{
                 y = 22f;
                 rotate = true;
                 rotateSpeed = 2f;
-                reload = 15f;
+                reload = 12f;
                 layerOffset = -1f;
                 recoil = 1f;
                 bullet = new BasicBulletType(5f, 0){{
@@ -4078,11 +4078,11 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 1f;
+                        speed = 0.6f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 120;
+                        health = 150;
                         armor = 3f;
                         lifetime = 300f;
                         fogRadius = 12f;
@@ -4115,17 +4115,19 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
+                            reload = 12f;
+                            shootStatus = StatusEffects.melting;
+                            shootStatusDuration = 90f;
                             x = 0;
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            reload = 15f;
                             bullet = new BasicBulletType(6f, 30){{
                                 width = 6f;
                                 height = 10f;
                                 splashDamage = 15f;
                                 splashDamageRadius = 16f;
-                                lifetime = 40f;
+                                lifetime = 48f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
