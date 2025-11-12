@@ -4026,15 +4026,12 @@ public class UnitTypes{
                 mirror = true;
                 rotate = false;
                 alternate = false;
-                reload = 240f;
+                reload = 330f;
                 layerOffset = -20f;
                 recoil = 0f;
                 shootY = 30f;
                 shootCone = 360f;
-                // strength overriden by unit.healthf()
-                // strength = 1.0f;
-                int spawn_multiplier = Mathf.floor(5 * Mathf.clamp((strength-0.2f)/0.8f)) + 1;
-                shoot = new ShootSpread(spawn_multiplier, 9f);
+                shoot = new ShootSpread(6, 9f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4084,7 +4081,7 @@ public class UnitTypes{
                         outlineColor = Pal.darkOutline;
                         health = 150;
                         armor = 3f;
-                        lifetime = 300f;
+                        lifetime = 360f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
