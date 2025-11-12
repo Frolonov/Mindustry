@@ -252,8 +252,7 @@ abstract class UnitComp implements Healthc, Physicsc, Hitboxc, Statusc, Teamc, I
             case totalItems -> stack().amount;
             case itemCapacity -> type.itemCapacity;
             case rotation -> rotation;
-            case health -> health;
-            case strength -> strength;    
+            case health -> health;  
             case shield -> shield;
             case maxHealth -> maxHealth;
             case ammo -> !state.rules.unitAmmo ? type.ammoCapacity : ammo;
