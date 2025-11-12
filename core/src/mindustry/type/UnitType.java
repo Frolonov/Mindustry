@@ -82,7 +82,7 @@ public class UnitType extends UnlockableContent implements Senseable{
     /** how many ticks it takes this missile to accelerate to full speed */
     missileAccelTime = 0f,
     /** raw health amount */
-    health = 200f,  
+    health = 200f,
     /** incoming damage is reduced by this amount */
     armor = 0f,
     /** minimum range of any weapon; used for approaching targets. can be overridden by setting a value > 0. */
