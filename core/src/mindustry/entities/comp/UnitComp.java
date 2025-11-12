@@ -38,7 +38,7 @@ abstract class UnitComp implements Healthc, Physicsc, Hitboxc, Statusc, Teamc, I
     static final float warpDst = 8f;
 
     @Import boolean dead, disarmed;
-    @Import float x, y, rotation, maxHealth, drag, armor, hitSize, health, strength, shield, ammo, dragMultiplier, armorOverride, speedMultiplier;
+    @Import float x, y, rotation, maxHealth, drag, armor, hitSize, health, shield, ammo, dragMultiplier, armorOverride, speedMultiplier;
     @Import Team team;
     @Import int id;
     @Import @Nullable Tile mineTile;
@@ -252,7 +252,7 @@ abstract class UnitComp implements Healthc, Physicsc, Hitboxc, Statusc, Teamc, I
             case totalItems -> stack().amount;
             case itemCapacity -> type.itemCapacity;
             case rotation -> rotation;
-            case health -> health;  
+            case health -> health;
             case shield -> shield;
             case maxHealth -> maxHealth;
             case ammo -> !state.rules.unitAmmo ? type.ammoCapacity : ammo;
@@ -599,11 +599,6 @@ abstract class UnitComp implements Healthc, Physicsc, Hitboxc, Statusc, Teamc, I
         if(health < maxHealth && amount > 0){
             wasHealed = true;
         }
-    }
-
-    @Override
-    public void updateStrength(){
-        strength = health / maxHealth;
     }
 
     public void updateDrowning(){
