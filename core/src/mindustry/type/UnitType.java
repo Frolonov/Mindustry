@@ -82,9 +82,7 @@ public class UnitType extends UnlockableContent implements Senseable{
     /** how many ticks it takes this missile to accelerate to full speed */
     missileAccelTime = 0f,
     /** raw health amount */
-    health = 200f,
-    /** percentage health */
-    strength = 1.0f,    
+    health = 200f,  
     /** incoming damage is reduced by this amount */
     armor = 0f,
     /** minimum range of any weapon; used for approaching targets. can be overridden by setting a value > 0. */
@@ -1071,11 +1069,6 @@ public class UnitType extends UnlockableContent implements Senseable{
         sample = constructor.get();
     }
 
-    public float checkStrength(Unit unit){
-        strength = Mathf.clamp(unit.healthf());
-        return strength;
-    }
-    
     public float estimateDps(){
         //calculate estimated DPS for one target based on weapons
         if(dpsEstimate < 0){
