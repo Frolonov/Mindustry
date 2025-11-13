@@ -3952,11 +3952,11 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 1f;
+            speed = 1.4f;
             rotateSpeed = 2f;
             accel = 0.1f;
-            health = 10000f;
-            armor = 12f;
+            health = 12000f;
+            armor = 9f;
             hitSize = 46f;
             fogRadius = 56f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
@@ -4045,11 +4045,11 @@ public class UnitTypes{
                 shootY = 10f;
                 shootCone = 390f;
                 functionalHealthLimit = 0.1f;
-                variableShot = 15;
+                variableShot = 18;
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
-                    selfDamage = 30f;
+                    selfDamage = 60f;
                     shootEffect = Fx.sparkShoot;
                     hitColor = Pal.suppress;
                     speed = 0f;
@@ -4115,21 +4115,21 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
-                            reload = 15f;
+                            reload = 12f;
                             x = 0;
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(6f, 35){{
+                            bullet = new BasicBulletType(8f, 35){{
                                 width = 6f;
                                 height = 10f;
-                                selfDamage = 10f;
+                                selfDamage = 15f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
                                 pierceArmor = true;
                                 pierceCap = 2;
-                                lifetime = 40f;
+                                lifetime = 30f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
