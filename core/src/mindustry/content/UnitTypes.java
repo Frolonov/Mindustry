@@ -4115,7 +4115,7 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
-                            reload = 12f;
+                            reload = 15f;
                             x = 0;
                             y = 2;
                             mirror = false;
@@ -4123,7 +4123,7 @@ public class UnitTypes{
                             bullet = new BasicBulletType(8f, 35){{
                                 width = 6f;
                                 height = 10f;
-                                selfDamage = 15f;
+                                selfDamage = 8f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
