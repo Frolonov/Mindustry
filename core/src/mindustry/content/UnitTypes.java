@@ -4049,6 +4049,7 @@ public class UnitTypes{
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
+                    selfDamage = 30f;
                     shootEffect = Fx.sparkShoot;
                     hitColor = Pal.suppress;
                     speed = 0f;
@@ -4115,8 +4116,6 @@ public class UnitTypes{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
                             reload = 15f;
-                            shootStatus = StatusEffects.burning;
-                            shootStatusDuration = 90f;
                             x = 0;
                             y = 2;
                             mirror = false;
@@ -4124,6 +4123,7 @@ public class UnitTypes{
                             bullet = new BasicBulletType(6f, 35){{
                                 width = 6f;
                                 height = 10f;
+                                selfDamage = 10f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
