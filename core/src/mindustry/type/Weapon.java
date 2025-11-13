@@ -75,7 +75,7 @@ public class Weapon implements Cloneable{
     /** weapon reload in frames */
     public float reload = 1;
     /** weapon shot depending on weapon strength */
-    public int variableShot = 1;
+    public int variableShot = 0;
     /** minimum unit health in percentage for weapon to fire */
     public float functionalHealthLimit = 0.1f;
     /** inaccuracy of degrees of each shot */
