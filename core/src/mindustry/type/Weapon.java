@@ -74,8 +74,6 @@ public class Weapon implements Cloneable{
     public float rotateSpeed = 20f;
     /** weapon reload in frames */
     public float reload = 1;
-    /** weapon strength depending on unit health */
-    public float mountStrength = 1.0f;
     /** weapon shot depending on weapon strength */
     public int variableShot = 1;
     /** inaccuracy of degrees of each shot */
@@ -300,7 +298,7 @@ public class Weapon implements Cloneable{
         mount.smoothReload = Mathf.lerpDelta(mount.smoothReload, mount.reload / reload, smoothReloadSpeed);
         mount.charge = mount.charging && shoot.firstShotDelay > 0 ? Mathf.approachDelta(mount.charge, 1, 1 / shoot.firstShotDelay) : 0;
         float healthCheck = Mathf.clamp(unit.health / unit.maxHealth - 0.9f) / 0.9f;
-        mountStrength = healthCheck > 0.1f? healthCheck : 0;
+        float mountStrength = healthCheck > 0.1f? healthCheck : 0;
         mount.totalShots = Mathf.floor(mountStrength * variableShot);
 
         float warmupTarget = (can && mount.shoot) || (continuous && mount.bullet != null) || mount.charging ? 1f : 0f;
