@@ -3997,17 +3997,31 @@ public class UnitTypes{
                 reload = 10f;
                 layerOffset = -1f;
                 recoil = 1f;
+
+                parts.add(new RegionPart("-blade"){{
+                    heatProgress = PartProgress.warmup;
+                    progress = PartProgress.warmup.blend(PartProgress.reload, 0.15f);
+                    heatColor = Color.valueOf("9c50ff");
+                    x = 5 / 4f;
+                    y = 0f;
+                    moveRot = -33f;
+                    moveY = -1f;
+                    moveX = -1f;
+                    under = true;
+                    mirror = true;
+                }});
+                
                 bullet = new BasicBulletType(5f, 0){{
                     width = 8f;
                     height = 15f;
                     lifetime = 32f;
                     scaleLife = true;
                     collidesTiles = false;
-                    splashDamage = 30f;
+                    splashDamage = 40f;
                     splashDamageRadius = 24f;
                     lightning = 1;
                     lightningCone = 20f;
-                    lightningDamage = 40;
+                    lightningDamage = 30;
                     shootEffect = Fx.sparkShoot;
                     smokeEffect = Fx.shootBigSmoke;
                     hitColor = backColor = trailColor = Pal.suppress;
@@ -4029,23 +4043,10 @@ public class UnitTypes{
                 layerOffset = -20f;
                 recoil = 0f;
                 shootY = 10f;
-                shootCone = 360f;
+                shootCone = 390f;
                 functionalHealthLimit = 0.1f;
                 variableShot = 15;
                 shoot = new ShootSpread(variableShot, 9f);
-
-                parts.add(new RegionPart("-blade"){{
-                    heatProgress = PartProgress.warmup;
-                    progress = PartProgress.warmup.blend(PartProgress.reload, 0.15f);
-                    heatColor = Color.valueOf("9c50ff");
-                    x = 5 / 4f;
-                    y = 0f;
-                    moveRot = -33f;
-                    moveY = -1f;
-                    moveX = -1f;
-                    under = true;
-                    mirror = true;
-                }});
 
                 bullet = new BulletType(){{
                     shootEffect = Fx.sparkShoot;
@@ -4076,13 +4077,13 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 2f;
+                        speed = 1f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
                         health = 150;
                         armor = 3f;
-                        lifetime = 480f;
+                        lifetime = 420f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4123,12 +4124,12 @@ public class UnitTypes{
                             bullet = new BasicBulletType(6f, 35){{
                                 width = 6f;
                                 height = 10f;
-                                homingPower = 0.2f;
+                                homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
                                 pierceArmor = true;
                                 pierceCap = 2;
-                                lifetime = 44f;
+                                lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
