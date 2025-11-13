@@ -4030,7 +4030,9 @@ public class UnitTypes{
                 recoil = 0f;
                 shootY = 10f;
                 shootCone = 360f;
-                shoot = new ShootSpread(12, 9f);
+                functionalHealthLimit = 0.1f;
+                variableShot = 15;
+                shoot = new ShootSpread(variableShot, 9f);
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
