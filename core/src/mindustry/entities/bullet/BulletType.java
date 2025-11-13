@@ -914,7 +914,7 @@ public class BulletType extends Content implements Cloneable{
             if(killShooter && owner instanceof Healthc h && !h.dead()) h.kill();
             
             float sDamage = this.selfDamage;
-            if(sDamage > 0 && owner() instanceof Healthc h && !h.dead()) h.damagePierce(sDamage);
+            if(sDamage > 0 && owner instanceof Healthc h && !h.dead()) h.damagePierce(sDamage);
 
             //no bullet returned
             return null;
