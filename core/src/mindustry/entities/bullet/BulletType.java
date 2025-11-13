@@ -38,6 +38,8 @@ public class BulletType extends Content implements Cloneable{
     public float velocityScaleRandMin = 1f, velocityScaleRandMax = 1f;
     /** Direct damage dealt on hit. */
     public float damage = 1f;
+    /** Damage to shooter per shot. */
+    public float selfDamage = 0f;
     /** Hitbox size. */
     public float hitSize = 4;
     /** Clipping hitbox. */
@@ -664,6 +666,10 @@ public class BulletType extends Content implements Cloneable{
 
         if(killShooter && b.owner() instanceof Healthc h && !h.dead()){
             h.kill();
+        }
+
+        if(selfDamage > 0 && b.owner() instanceof Healthc h && !h.dead()){
+            h.damagePierce(float selfDamage);
         }
 
         if(instantDisappear){
