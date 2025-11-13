@@ -299,9 +299,6 @@ public class Weapon implements Cloneable{
         }
         mount.smoothReload = Mathf.lerpDelta(mount.smoothReload, mount.reload / reload, smoothReloadSpeed);
         mount.charge = mount.charging && shoot.firstShotDelay > 0 ? Mathf.approachDelta(mount.charge, 1, 1 / shoot.firstShotDelay) : 0;
-        float healthCheck = Mathf.clamp(unit.health / unit.maxHealth);
-        float mountStrength = healthCheck > functionalHealthLimit? healthCheck : 0;
-        mount.totalShots = Mathf.floor(mountStrength * variableShot);
 
         float warmupTarget = (can && mount.shoot) || (continuous && mount.bullet != null) || mount.charging ? 1f : 0f;
         if(linearWarmup){
@@ -465,6 +462,12 @@ public class Weapon implements Cloneable{
             bullet.chargeEffect.at(shootX, shootY, rotation, bullet.keepVelocity || parentizeEffects ? unit : null);
         }
 
+        if(variableShot > 0){
+            float healthCheck = Mathf.clamp(unit.health / unit.maxHealth);
+            float mountStrength = healthCheck > functionalHealthLimit? healthCheck : 0;
+            this.shoot.shots = Mathf.floor(mountStrength * variableShot);
+        }
+        
         shoot.shoot(mount.barrelCounter, (xOffset, yOffset, angle, delay, mover) -> {
             //this is incremented immediately, as it is used for total bullet creation amount detection
             mount.totalShots ++;
