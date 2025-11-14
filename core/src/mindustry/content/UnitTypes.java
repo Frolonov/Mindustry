@@ -4011,24 +4011,15 @@ public class UnitTypes{
                     mirror = true;
                 }});
                 
-                bullet = new BasicBulletType(5f, 0){{
-                    width = 8f;
-                    height = 15f;
-                    lifetime = 32f;
-                    scaleLife = true;
-                    collidesTiles = false;
-                    splashDamage = 40f;
-                    splashDamageRadius = 24f;
-                    lightning = 1;
-                    lightningCone = 20f;
-                    lightningDamage = 30;
-                    shootEffect = Fx.sparkShoot;
-                    smokeEffect = Fx.shootBigSmoke;
-                    hitColor = backColor = trailColor = Pal.suppress;
-                    frontColor = Color.white;
-                    trailWidth = 1.5f;
-                    trailLength = 5;
-                    hitEffect = despawnEffect = Fx.flakExplosion;
+                bullet = new SapBulletType(){{
+                sapStrength = 0.8f;
+                length = 200f;
+                damage = 40;
+                shootEffect = Fx.shootSmall;
+                hitColor = color = Color.valueOf("bf92f9");
+                despawnEffect = Fx.none;
+                width = 0.55f;
+                lifetime = 20f;
                 }};
             }});
 
@@ -4039,12 +4030,12 @@ public class UnitTypes{
                 mirror = false;
                 rotate = false;
                 alternate = false;
-                reload = 540f;
+                reload = 240f;
                 layerOffset = -20f;
                 recoil = 0f;
                 shootY = 10f;
-                shootCone = 390f;
-                functionalHealthLimit = 0.1f;
+                shootCone = 360f;
+                functionalHealthLimit = 0.25f;
                 variableShot = 18;
                 shoot = new ShootSpread(variableShot, 9f);
 
@@ -4078,13 +4069,13 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 1f;
+                        speed = 1.5f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
                         health = 150;
                         armor = 3f;
-                        lifetime = 420f;
+                        lifetime = 300f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
@@ -4115,15 +4106,15 @@ public class UnitTypes{
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
-                            reload = 15f;
+                            reload = 20f;
                             x = 0;
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(8f, 35){{
+                            bullet = new BasicBulletType(8f, 20){{
                                 width = 6f;
                                 height = 10f;
-                                selfDamage = 8f;
+                                selfDamage = 10f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
