@@ -4012,9 +4012,11 @@ public class UnitTypes{
                 }});
                 
                 bullet = new SapBulletType(){{
-                sapStrength = 0.7f;
-                length = 220f;
-                damage = 35;
+                sapStrength = 0.8f;
+                length = 240f;
+                damage = 60;
+                pierce = true;
+                pierceBuilding = true;
                 shootEffect = Fx.shootSmall;
                 hitColor = color = Color.valueOf("bf92f9");
                 despawnEffect = Fx.none;
@@ -4040,7 +4042,7 @@ public class UnitTypes{
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
-                    selfDamage = 100f;
+                    selfDamage = 180f;
                     shootEffect = Fx.sparkShoot;
                     hitColor = Pal.suppress;
                     speed = 0f;
@@ -4069,11 +4071,11 @@ public class UnitTypes{
                         hidden = true;
                         hoverable = false;
                         accel = 0.1f;
-                        speed = 3f;
+                        speed = 2f;
                         drag = 0.02f;
                         rotateSpeed = 4f;
                         outlineColor = Pal.darkOutline;
-                        health = 180;
+                        health = 200;
                         armor = 3f;
                         lifetime = 360f;
                         fogRadius = 12f;
@@ -4114,7 +4116,7 @@ public class UnitTypes{
                             bullet = new BasicBulletType(8f, 25){{
                                 width = 6f;
                                 height = 10f;
-                                selfDamage = 4f;
+                                selfDamage = 6f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
