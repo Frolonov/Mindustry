@@ -463,8 +463,8 @@ public class Weapon implements Cloneable{
         }
 
         if(variableShot > 0){
-            float healthCheck = Mathf.clamp(unit.health / unit.maxHealth);
-            float mountStrength = healthCheck > functionalHealthLimit? healthCheck : 0;
+            float healthCheck = Mathf.clamp((unit.health/unit.maxHealth - functionalHealthLimit) / (1.0f - functionalHealthLimit));
+            float mountStrength = healthCheck > 0? healthCheck : 0;
             this.shoot.shots = Mathf.floor(mountStrength * variableShot);
         }
         
