@@ -4159,7 +4159,7 @@ public class UnitTypes{
                     speed = 0f;
                     keepVelocity = false;
                     collidesAir = false;
-                    spawnUnit = new UnitType("disrupt-missile"){{
+                    spawnUnit = new UnitType("quell-missile"){{
                         createWreck = false;
                         createScorch = false;
                         logicControllable = false;
@@ -4195,27 +4195,6 @@ public class UnitTypes{
                         engineLayer = Layer.effect;
                         deathExplosionEffect = Fx.none;
                         deathSound = Sounds.none;
-
-                        parts.add(new ShapePart(){{
-                            layer = Layer.effect;
-                            circle = true;
-                            y = -0.25f;
-                            radius = 1.5f;
-                            color = Pal.suppress;
-                            colorTo = Color.white;
-                            progress = PartProgress.life.curve(Interp.pow5In);
-                        }});
-
-                        parts.add(new RegionPart("-fin"){{
-                            mirror = true;
-                            progress = PartProgress.life.mul(3f).curve(Interp.pow5In);
-                            moveRot = 32f;
-                            rotation = -6f;
-                            moveY = 1.5f;
-                            x = 3f / 4f;
-                            y = -6f / 4f;
-                        }});
-
                         weapons.add(new Weapon(){{
                             shootCone = 30f;
                             shootSound = Sounds.blaster;
