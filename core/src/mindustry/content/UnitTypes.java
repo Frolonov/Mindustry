@@ -3952,7 +3952,7 @@ public class UnitTypes{
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 1.4f;
+            speed = 1.5f;
             rotateSpeed = 2f;
             accel = 0.1f;
             health = 12000f;
@@ -4038,7 +4038,7 @@ public class UnitTypes{
                 shootY = 10f;
                 shootCone = 360f;
                 functionalHealthLimit = 0.25f;
-                variableShot = 7;
+                variableShot = 15;
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
@@ -4053,7 +4053,7 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FlyingAI();
-                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.generator, null};
+                        targetFlags = new BlockFlag[]{BlockFlag.turret, null};
                         hitSize = 4f;
                         circleTarget = true;
                         targetUnderBlocks = false;
@@ -4135,97 +4135,7 @@ public class UnitTypes{
                     }};
                 }};
             }});
-
-            weapons.add(new Weapon(){{
-                shootSound = Sounds.missile;
-                x = 0;
-                y = 22f;
-                mirror = false;
-                rotate = false;
-                alternate = false;
-                reload = 360f;
-                layerOffset = -20f;
-                recoil = 0f;
-                shootY = 10f;
-                shootCone = 360f;
-                functionalHealthLimit = 0.25f;
-                variableShot = 7;
-                shoot = new ShootSpread(variableShot, 9f);
-
-                bullet = new BulletType(){{
-                    selfDamage = 180f;
-                    shootEffect = Fx.sparkShoot;
-                    hitColor = Pal.suppress;
-                    speed = 0f;
-                    keepVelocity = false;
-                    collidesAir = false;
-                    spawnUnit = new UnitType("quell-missile"){{
-                        createWreck = false;
-                        createScorch = false;
-                        logicControllable = false;
-                        controller = u -> new FlyingAI();
-                        hitSize = 4f;
-                        circleTarget = true;
-                        targetUnderBlocks = false;
-                        isEnemy = false;
-                        useUnitCap = false;
-                        drawCell = false;
-                        drawMinimap = false;
-                        allowedInPayloads = false;
-                        flying = true;
-                        constructor = TimedKillUnit::create;
-                        envEnabled = Env.any;
-                        envDisabled = 0;
-                        physics = true;
-                        bounded = false;
-                        trailLength = 7;
-                        hidden = true;
-                        hoverable = false;
-                        accel = 0.1f;
-                        speed = 2f;
-                        drag = 0.02f;
-                        rotateSpeed = 4f;
-                        outlineColor = Pal.darkOutline;
-                        health = 200;
-                        armor = 3f;
-                        lifetime = 360f;
-                        fogRadius = 12f;
-                        engineSize = 3f;
-                        engineColor = trailColor = Pal.sapBulletBack;
-                        engineLayer = Layer.effect;
-                        deathExplosionEffect = Fx.none;
-                        deathSound = Sounds.none;
-                        weapons.add(new Weapon(){{
-                            shootCone = 30f;
-                            shootSound = Sounds.blaster;
-                            reload = 12f;
-                            x = 0;
-                            y = 2;
-                            mirror = false;
-                            rotate = false;
-                            bullet = new BasicBulletType(8f, 30){{
-                                width = 6f;
-                                height = 10f;
-                                selfDamage = 6f;
-                                homingPower = 0.5f;
-                                pierce = true;
-                                pierceBuilding = true;
-                                pierceArmor = true;
-                                pierceCap = 2;
-                                lifetime = 30f;
-                                hitColor = backColor = trailColor = Pal.suppress;
-                                frontColor = Color.white;
-                                trailWidth = 0.5f;
-                                trailLength = 3;
-                                hitEffect = despawnEffect = Fx.hitBulletColor;
-                                shootEffect = Fx.shootSmall;
-                            }};
-                        }});
-                    }};
-                }};
-            }});
             
-
             setEnginesMirror(
             new UnitEngine(95 / 4f, -56 / 4f, 5f, 330f),
             new UnitEngine(89 / 4f, -95 / 4f, 4f, 315f)
