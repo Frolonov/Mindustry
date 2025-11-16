@@ -4012,9 +4012,9 @@ public class UnitTypes{
                 }});
                 
                 bullet = new SapBulletType(){{
-                sapStrength = 0.8f;
+                sapStrength = 0.85f;
                 length = 240f;
-                damage = 60;
+                damage = 70;
                 pierce = true;
                 pierceBuilding = true;
                 shootEffect = Fx.shootSmall;
@@ -4038,7 +4038,118 @@ public class UnitTypes{
                 shootY = 10f;
                 shootCone = 360f;
                 functionalHealthLimit = 0.25f;
-                variableShot = 15;
+                variableShot = 7;
+                shoot = new ShootSpread(variableShot, 9f);
+
+                bullet = new BulletType(){{
+                    selfDamage = 180f;
+                    shootEffect = Fx.sparkShoot;
+                    hitColor = Pal.suppress;
+                    speed = 0f;
+                    keepVelocity = false;
+                    collidesAir = false;
+                    spawnUnit = new UnitType("disrupt-missile"){{
+                        createWreck = false;
+                        createScorch = false;
+                        logicControllable = false;
+                        controller = u -> new FlyingAI();
+                        targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.generator, null};
+                        hitSize = 4f;
+                        circleTarget = true;
+                        targetUnderBlocks = false;
+                        isEnemy = false;
+                        useUnitCap = false;
+                        drawCell = false;
+                        drawMinimap = false;
+                        allowedInPayloads = false;
+                        flying = true;
+                        constructor = TimedKillUnit::create;
+                        envEnabled = Env.any;
+                        envDisabled = 0;
+                        physics = true;
+                        bounded = false;
+                        trailLength = 7;
+                        hidden = true;
+                        hoverable = false;
+                        accel = 0.1f;
+                        speed = 2f;
+                        drag = 0.02f;
+                        rotateSpeed = 4f;
+                        outlineColor = Pal.darkOutline;
+                        health = 200;
+                        armor = 3f;
+                        lifetime = 360f;
+                        fogRadius = 12f;
+                        engineSize = 3f;
+                        engineColor = trailColor = Pal.sapBulletBack;
+                        engineLayer = Layer.effect;
+                        deathExplosionEffect = Fx.none;
+                        deathSound = Sounds.none;
+
+                        parts.add(new ShapePart(){{
+                            layer = Layer.effect;
+                            circle = true;
+                            y = -0.25f;
+                            radius = 1.5f;
+                            color = Pal.suppress;
+                            colorTo = Color.white;
+                            progress = PartProgress.life.curve(Interp.pow5In);
+                        }});
+
+                        parts.add(new RegionPart("-fin"){{
+                            mirror = true;
+                            progress = PartProgress.life.mul(3f).curve(Interp.pow5In);
+                            moveRot = 32f;
+                            rotation = -6f;
+                            moveY = 1.5f;
+                            x = 3f / 4f;
+                            y = -6f / 4f;
+                        }});
+
+                        weapons.add(new Weapon(){{
+                            shootCone = 30f;
+                            shootSound = Sounds.blaster;
+                            reload = 12f;
+                            x = 0;
+                            y = 2;
+                            mirror = false;
+                            rotate = false;
+                            bullet = new BasicBulletType(8f, 30){{
+                                width = 6f;
+                                height = 10f;
+                                selfDamage = 6f;
+                                homingPower = 0.5f;
+                                pierce = true;
+                                pierceBuilding = true;
+                                pierceArmor = true;
+                                pierceCap = 2;
+                                lifetime = 30f;
+                                hitColor = backColor = trailColor = Pal.suppress;
+                                frontColor = Color.white;
+                                trailWidth = 0.5f;
+                                trailLength = 3;
+                                hitEffect = despawnEffect = Fx.hitBulletColor;
+                                shootEffect = Fx.shootSmall;
+                            }};
+                        }});
+                    }};
+                }};
+            }});
+
+            weapons.add(new Weapon(){{
+                shootSound = Sounds.missile;
+                x = 0;
+                y = 22f;
+                mirror = false;
+                rotate = false;
+                alternate = false;
+                reload = 360f;
+                layerOffset = -20f;
+                recoil = 0f;
+                shootY = 10f;
+                shootCone = 360f;
+                functionalHealthLimit = 0.25f;
+                variableShot = 7;
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
@@ -4113,7 +4224,7 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(8f, 25){{
+                            bullet = new BasicBulletType(8f, 30){{
                                 width = 6f;
                                 height = 10f;
                                 selfDamage = 6f;
@@ -4134,6 +4245,7 @@ public class UnitTypes{
                     }};
                 }};
             }});
+            
 
             setEnginesMirror(
             new UnitEngine(95 / 4f, -56 / 4f, 5f, 330f),
