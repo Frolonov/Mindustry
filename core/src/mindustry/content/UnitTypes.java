@@ -4126,7 +4126,7 @@ public class UnitTypes{
                                 pierceBuilding = true;
                                 pierceArmor = true;
                                 pierceCap = 2;
-                                lifetime = 40f;
+                                lifetime = 42f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
