@@ -3947,21 +3947,19 @@ public class UnitTypes{
         }};
 
         disrupt = new ErekirUnitType("disrupt"){{
-            aiController = FlyingFollowAI::new;
             envDisabled = 0;
-
             lowAltitude = false;
             flying = true;
             drag = 0.07f;
-            speed = 1f;
+            speed = 1.5f;
             rotateSpeed = 2f;
+            targetUnderBlocks = false;
             accel = 0.1f;
             health = 12000f;
             armor = 9f;
             hitSize = 46f;
+            fogRadius = 56f;
             payloadCapacity = Mathf.sqr(6f) * tilePayload;
-            targetAir = false;
-
             engineSize = 6f;
             engineOffset = 25.25f;
 
@@ -3969,8 +3967,8 @@ public class UnitTypes{
             int parts = 10;
 
             abilities.add(new SuppressionFieldAbility(){{
-                reload = 60 * 15f;
-                range = 320f;
+                reload = 60 * 8f;
+                range = 288f;
                 orbRadius = orbRad;
                 particleSize = partRad;
                 y = 10f;
@@ -3990,23 +3988,15 @@ public class UnitTypes{
             }
 
             weapons.add(new Weapon("disrupt-weapon"){{
-                shootSound = Sounds.missileLarge;
+                shootSound = Sounds.blaster;
+                mirror = true;
                 x = 78f / 4f;
                 y = -10f / 4f;
-                mirror = true;
                 rotate = true;
-                rotateSpeed = 0.4f;
-                reload = 70f;
-                layerOffset = -20f;
+                rotateSpeed = 2f;
+                reload = 8f;
+                layerOffset = -3f;
                 recoil = 1f;
-                rotationLimit = 22f;
-                minWarmup = 0.95f;
-                shootWarmupSpeed = 0.1f;
-                shootY = 2f;
-                shootCone = 40f;
-                shoot.shots = 3;
-                shoot.shotDelay = 5f;
-                inaccuracy = 28f;
 
                 parts.add(new RegionPart("-blade"){{
                     heatProgress = PartProgress.warmup;
@@ -4020,29 +4010,85 @@ public class UnitTypes{
                     under = true;
                     mirror = true;
                 }});
+                
+                bullet = new SapBulletType(){{
+                sapStrength = 0.85f;
+                length = 240f;
+                damage = 60;
+                pierce = true;
+                pierceBuilding = true;
+                shootEffect = Fx.shootSmall;
+                hitColor = color = Color.valueOf("bf92f9");
+                despawnEffect = Fx.none;
+                width = 0.55f;
+                lifetime = 20f;
+                }};
+            }});
+
+            weapons.add(new Weapon(){{
+                shootSound = Sounds.missile;
+                x = 0;
+                y = 22f;
+                activeRangeFactor = 0.386f;
+                mirror = false;
+                rotate = false;
+                alternate = false;
+                reload = 420f;
+                layerOffset = -2f;
+                recoil = 0f;
+                shootY = 10f;
+                shootCone = 360f;
+                functionalHealthLimit = 0.2f;
+                variableShot = 15;
+                shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
+                    selfDamage = 170f;
                     shootEffect = Fx.sparkShoot;
-                    smokeEffect = Fx.shootSmokeTitan;
                     hitColor = Pal.suppress;
-                    shake = 1f;
                     speed = 0f;
                     keepVelocity = false;
-                    collidesAir = false;
-
-                    spawnUnit = new MissileUnitType("disrupt-missile"){{
-                        targetAir = false;
-                        speed = 4.6f;
-                        maxRange = 5f;
+                    collides = false;
+                    hittable = false;
+                    absorbable = false;
+                    reflectable = false;
+                    spawnUnit = new UnitType("disrupt-missile"){{
+                        createWreck = false;
+                        createScorch = false;
+                        logicControllable = false;
+                        controller = u -> new FighterAI();
+                        hitSize = 4f;
+                        circleTarget = true;
+                        omniMovement = false;
+                        targetUnderBlocks = false;
+                        isEnemy = false;
+                        useUnitCap = false;
+                        drawCell = false;
+                        drawMinimap = false;
+                        allowedInPayloads = false;
+                        flying = true;
+                        constructor = TimedKillUnit::create;
+                        envEnabled = Env.any;
+                        envDisabled = 0;
+                        physics = true;
+                        bounded = false;
+                        trailLength = 7;
+                        hidden = true;
+                        hoverable = false;
+                        accel = 0.1f;
+                        speed = 2f;
+                        drag = 0.02f;
+                        rotateSpeed = 3f;
                         outlineColor = Pal.darkOutline;
-                        health = 70;
-                        homingDelay = 10f;
-                        lowAltitude = true;
+                        health = 200;
+                        armor = 3f;
+                        lifetime = 420f;
+                        fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
                         engineLayer = Layer.effect;
                         deathExplosionEffect = Fx.none;
-                        loopSoundVolume = 0.1f;
+                        deathSound = Sounds.none;
 
                         parts.add(new ShapePart(){{
                             layer = Layer.effect;
@@ -4065,34 +4111,35 @@ public class UnitTypes{
                         }});
 
                         weapons.add(new Weapon(){{
-                            shootCone = 360f;
+                            shootCone = 30f;
+                            shootSound = Sounds.blaster;
+                            reload = 12f;
+                            x = 0;
+                            y = 2;
                             mirror = false;
-                            reload = 1f;
-                            shootOnDeath = true;
-                            bullet = new ExplosionBulletType(140f, 25f){{
-                                collidesAir = false;
-                                suppressionRange = 140f;
-                                shootEffect = new ExplosionEffect(){{
-                                    lifetime = 50f;
-                                    waveStroke = 5f;
-                                    waveLife = 8f;
-                                    waveColor = Color.white;
-                                    sparkColor = smokeColor = Pal.suppress;
-                                    waveRad = 40f;
-                                    smokeSize = 4f;
-                                    smokes = 7;
-                                    smokeSizeBase = 0f;
-                                    sparks = 10;
-                                    sparkRad = 40f;
-                                    sparkLen = 6f;
-                                    sparkStroke = 2f;
-                                }};
+                            rotate = false;
+                            bullet = new BasicBulletType(8f, 23){{
+                                width = 6f;
+                                height = 10f;
+                                selfDamage = 5f;
+                                homingPower = 0.2f;
+                                pierce = true;
+                                pierceBuilding = true;
+                                pierceArmor = true;
+                                pierceCap = 2;
+                                lifetime = 42f;
+                                hitColor = backColor = trailColor = Pal.suppress;
+                                frontColor = Color.white;
+                                trailWidth = 0.5f;
+                                trailLength = 3;
+                                hitEffect = despawnEffect = Fx.hitBulletColor;
+                                shootEffect = Fx.shootSmall;
                             }};
                         }});
                     }};
                 }};
             }});
-
+            
             setEnginesMirror(
             new UnitEngine(95 / 4f, -56 / 4f, 5f, 330f),
             new UnitEngine(89 / 4f, -95 / 4f, 4f, 315f)
