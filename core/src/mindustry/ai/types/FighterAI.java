@@ -21,7 +21,7 @@ public class FighterAI extends AIController{
             if(unit.type.circleTarget){
                 circleAttack(160f);
             }else{
-                moveTo(target, unit.type.range * 0.7f);
+                moveTo(target, unit.type.range * 0.8f);
                 unit.lookAt(target);
             }
         }
@@ -38,10 +38,10 @@ public class FighterAI extends AIController{
 
     @Override
     public Teamc findTarget(float x, float y, float range, boolean air, boolean ground){
-        var result = findMainTarget(x, y, range * 0.7f, air, ground);
+        var result = findMainTarget(x, y, range * 0.8f, air, ground);
 
         //if the main target is in range, use it, otherwise target whatever is closest
-        return checkTarget(result, x, y, range * 0.7f) ? target(x, y, range * 0.7f, air, ground) : result;
+        return checkTarget(result, x, y, range * 0.8f) ? target(x, y, range * 0.8f, air, ground) : result;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class FighterAI extends AIController{
                 if(flag == null){
                     Teamc result =  target(x, y, range, air, ground);
                     if(result != null) return result;
-                }else if(ground){
+                }else{
                     Teamc result = targetFlag(x, y, flag, true);
                     if(result != null) return result;
                 }
