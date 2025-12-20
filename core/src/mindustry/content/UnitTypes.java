@@ -3995,7 +3995,7 @@ public class UnitTypes{
                 rotate = true;
                 rotateSpeed = 2f;
                 reload = 8f;
-                layerOffset = -1f;
+                layerOffset = -3f;
                 recoil = 1f;
 
                 parts.add(new RegionPart("-blade"){{
@@ -4029,7 +4029,7 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
-                activeRangeFactor = 0.5f;
+                activeRangeFactor = 0.4f;
                 mirror = false;
                 rotate = false;
                 alternate = false;
@@ -4115,7 +4115,7 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(8f, 30){{
+                            bullet = new BasicBulletType(8f, 26){{
                                 width = 6f;
                                 height = 10f;
                                 selfDamage = 6f;
