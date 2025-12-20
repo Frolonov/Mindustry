@@ -11,7 +11,6 @@ import static mindustry.world.meta.BlockFlag.*;
 
 public class FighterAI extends AIController{
     final static Rand rand = new Rand();
-    final static BlockFlag[] randomTargets = {core, turret, repair, generator, factory, reactor};
 
     @Override
     public void updateMovement(){
@@ -27,32 +26,10 @@ public class FighterAI extends AIController{
     }
 
     @Override
-    public Teamc targetFlag(float x, float y, BlockFlag flag, boolean enemy){
-            return super.targetFlag(x, y, flag, enemy);
-    }
-
-    @Override
     public Teamc findTarget(float x, float y, float range, boolean air, boolean ground){
-        var result = findMainTarget(x, y, range, air, ground);
+        var result = target(x, y, range, air, ground);
 
         //if the main target is in range, use it, otherwise target whatever is closest
         return checkTarget(result, x, y, range) ? target(x, y, range, air, ground) : result;
-    }
-
-    @Override
-    public Teamc findMainTarget(float x, float y, float range, boolean air, boolean ground){
-        var core = targetFlag(x, y, BlockFlag.core, true);
-
-            for(var flag : unit.type.targetFlags){
-                if(flag == null){
-                    Teamc result =  target(x, y, range, air, ground);
-                    if(result != null) return result;
-                }else{
-                    Teamc result = targetFlag(x, y, flag, true);
-                    if(result != null) return result;
-                }
-            }
-
-        return core;
     }
 }
