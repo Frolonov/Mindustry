@@ -3947,7 +3947,6 @@ public class UnitTypes{
         }};
 
         disrupt = new ErekirUnitType("disrupt"){{
-            aiController = FlyingFollowAI::new;
             envDisabled = 0;
             lowAltitude = false;
             flying = true;
@@ -4029,12 +4028,12 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
-                activeRangeFactor = 0.4f;
+                activeRangeFactor = 0.5f;
                 mirror = false;
                 rotate = false;
                 alternate = false;
                 reload = 420f;
-                layerOffset = -20f;
+                layerOffset = -2f;
                 recoil = 0f;
                 shootY = 10f;
                 shootCone = 360f;
@@ -4048,7 +4047,10 @@ public class UnitTypes{
                     hitColor = Pal.suppress;
                     speed = 0f;
                     keepVelocity = false;
-                    collidesAir = false;
+                    collides = false;
+                    hittable = false;
+                    absorbable = false;
+                    reflectable = false;
                     spawnUnit = new UnitType("disrupt-missile"){{
                         createWreck = false;
                         createScorch = false;
@@ -4115,10 +4117,10 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(8f, 26){{
+                            bullet = new BasicBulletType(8f, 25){{
                                 width = 6f;
                                 height = 10f;
-                                selfDamage = 6f;
+                                selfDamage = 5f;
                                 homingPower = 0.5f;
                                 pierce = true;
                                 pierceBuilding = true;
