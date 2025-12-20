@@ -4052,10 +4052,11 @@ public class UnitTypes{
                         createWreck = false;
                         createScorch = false;
                         logicControllable = false;
-                        controller = u -> new FlyingAI();
+                        controller = u -> new FighterAI();
                         targetFlags = new BlockFlag[]{BlockFlag.turret, null};
                         hitSize = 4f;
                         circleTarget = true;
+                        omniMovement = false;
                         targetUnderBlocks = false;
                         isEnemy = false;
                         useUnitCap = false;
