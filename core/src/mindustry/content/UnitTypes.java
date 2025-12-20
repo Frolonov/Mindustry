@@ -3953,6 +3953,7 @@ public class UnitTypes{
             drag = 0.07f;
             speed = 1.5f;
             rotateSpeed = 2f;
+            targetUnderBlocks = false;
             accel = 0.1f;
             health = 12000f;
             armor = 9f;
@@ -4028,7 +4029,7 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
-                activeRangeFactor = 0.4f;
+                activeRangeFactor = 0.385f;
                 mirror = false;
                 rotate = false;
                 alternate = false;
@@ -4037,7 +4038,7 @@ public class UnitTypes{
                 recoil = 0f;
                 shootY = 10f;
                 shootCone = 360f;
-                functionalHealthLimit = 0.25f;
+                functionalHealthLimit = 0.2f;
                 variableShot = 15;
                 shoot = new ShootSpread(variableShot, 9f);
 
