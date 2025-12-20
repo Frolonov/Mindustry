@@ -1,12 +1,9 @@
 package mindustry.ai.types;
 
 import arc.math.*;
-import mindustry.entities.Units.*;
 import mindustry.entities.units.*;
 import mindustry.game.*;
-import mindustry.game.Teams.*;
 import mindustry.gen.*;
-import mindustry.type.*;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
@@ -53,9 +50,7 @@ public class FighterAI extends AIController{
 
             for(var flag : unit.type.targetFlags){
                 if(flag == null){
-                    Teamc result = Units.bestEnemy(team, x, y, range,
-                    e -> !e.dead() && unitFilter.get(e),
-                    UnitSorts.strongest);
+                    Teamc result =  target(x, y, range, air, ground);
                     if(result != null) return result;
                 }else if(ground){
                     Teamc result = targetFlag(x, y, flag, true);
