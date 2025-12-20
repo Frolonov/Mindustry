@@ -9,7 +9,7 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 import static mindustry.world.meta.BlockFlag.*;
 
-public class FlyingAI extends AIController{
+public class FighterAI extends AIController{
     final static Rand rand = new Rand();
     final static BlockFlag[] randomTargets = {core, turret, repair, generator, factory, reactor};
 
