@@ -285,7 +285,7 @@ public class Weapon implements Cloneable{
     }
 
     public float range(){
-        return bullet.range;
+        return activeRangeFactor<1f ? activeRangeFactor * bullet.range : bullet.range;
     }
 
     public void update(Unit unit, WeaponMount mount){
@@ -316,11 +316,11 @@ public class Weapon implements Cloneable{
         //find a new target
         if(!controllable && autoTarget){
             if((mount.retarget -= Time.delta) <= 0f){
-                mount.target = findTarget(unit, mountX, mountY, activeRangeFactor<1f?bullet.range*activeRangeFactor:bullet.range, bullet.collidesAir, bullet.collidesGround);
+                mount.target = findTarget(unit, mountX, mountY, activeRangeFactor<1f ? activeRangeFactor * bullet.range : bullet.range, bullet.collidesAir, bullet.collidesGround);
                 mount.retarget = mount.target == null ? targetInterval : targetSwitchInterval;
             }
 
-            if(mount.target != null && checkTarget(unit, mount.target, mountX, mountY, activeRangeFactor<1f?bullet.range*activeRangeFactor:bullet.range)){
+            if(mount.target != null && checkTarget(unit, mount.target, mountX, mountY, activeRangeFactor<1f ? activeRangeFactor * bullet.range : bullet.range)){
                 mount.target = null;
             }
 
