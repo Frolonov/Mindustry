@@ -4029,10 +4029,11 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
+                useAttackRange = false;
                 mirror = false;
                 rotate = false;
                 alternate = false;
-                reload = 360f;
+                reload = 420f;
                 layerOffset = -20f;
                 recoil = 0f;
                 shootY = 10f;
@@ -4078,7 +4079,7 @@ public class UnitTypes{
                         outlineColor = Pal.darkOutline;
                         health = 200;
                         armor = 3f;
-                        lifetime = 360f;
+                        lifetime = 480f;
                         fogRadius = 12f;
                         engineSize = 3f;
                         engineColor = trailColor = Pal.sapBulletBack;
