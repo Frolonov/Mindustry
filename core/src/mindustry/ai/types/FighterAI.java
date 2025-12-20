@@ -15,7 +15,6 @@ public class FighterAI extends AIController{
 
     @Override
     public void updateMovement(){
-        unloadPayloads();
 
         if(target != null && unit.hasWeapons()){
             if(unit.type.circleTarget){
@@ -24,10 +23,6 @@ public class FighterAI extends AIController{
                 moveTo(target, unit.type.range * 0.8f);
                 unit.lookAt(target);
             }
-        }
-
-        if(target == null && state.rules.waves && unit.team == state.rules.defaultTeam){
-            moveTo(getClosestSpawner(), state.rules.dropZoneRadius + 130f);
         }
     }
 
@@ -38,10 +33,10 @@ public class FighterAI extends AIController{
 
     @Override
     public Teamc findTarget(float x, float y, float range, boolean air, boolean ground){
-        var result = findMainTarget(x, y, range * 0.8f, air, ground);
+        var result = findMainTarget(x, y, range, air, ground);
 
         //if the main target is in range, use it, otherwise target whatever is closest
-        return checkTarget(result, x, y, range * 0.8f) ? target(x, y, range * 0.8f, air, ground) : result;
+        return checkTarget(result, x, y, range) ? target(x, y, range, air, ground) : result;
     }
 
     @Override
