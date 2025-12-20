@@ -4053,7 +4053,6 @@ public class UnitTypes{
                         createScorch = false;
                         logicControllable = false;
                         controller = u -> new FighterAI();
-                        targetFlags = new BlockFlag[]{BlockFlag.turret, null};
                         hitSize = 4f;
                         circleTarget = true;
                         omniMovement = false;
