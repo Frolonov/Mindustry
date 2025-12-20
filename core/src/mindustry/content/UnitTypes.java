@@ -4028,7 +4028,7 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
-                activeRangeFactor = 0.5f;
+                activeRangeFactor = 0.4f;
                 mirror = false;
                 rotate = false;
                 alternate = false;
@@ -4126,7 +4126,7 @@ public class UnitTypes{
                                 pierceBuilding = true;
                                 pierceArmor = true;
                                 pierceCap = 2;
-                                lifetime = 30f;
+                                lifetime = 40f;
                                 hitColor = backColor = trailColor = Pal.suppress;
                                 frontColor = Color.white;
                                 trailWidth = 0.5f;
