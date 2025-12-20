@@ -3968,7 +3968,7 @@ public class UnitTypes{
 
             abilities.add(new SuppressionFieldAbility(){{
                 reload = 60 * 8f;
-                range = 240f;
+                range = 288f;
                 orbRadius = orbRad;
                 particleSize = partRad;
                 y = 10f;
@@ -4014,7 +4014,7 @@ public class UnitTypes{
                 bullet = new SapBulletType(){{
                 sapStrength = 0.85f;
                 length = 240f;
-                damage = 70;
+                damage = 60;
                 pierce = true;
                 pierceBuilding = true;
                 shootEffect = Fx.shootSmall;
@@ -4029,7 +4029,7 @@ public class UnitTypes{
                 shootSound = Sounds.missile;
                 x = 0;
                 y = 22f;
-                activeRangeFactor = 0.385f;
+                activeRangeFactor = 0.386f;
                 mirror = false;
                 rotate = false;
                 alternate = false;
@@ -4043,7 +4043,7 @@ public class UnitTypes{
                 shoot = new ShootSpread(variableShot, 9f);
 
                 bullet = new BulletType(){{
-                    selfDamage = 180f;
+                    selfDamage = 170f;
                     shootEffect = Fx.sparkShoot;
                     hitColor = Pal.suppress;
                     speed = 0f;
@@ -4118,11 +4118,11 @@ public class UnitTypes{
                             y = 2;
                             mirror = false;
                             rotate = false;
-                            bullet = new BasicBulletType(8f, 25){{
+                            bullet = new BasicBulletType(8f, 23){{
                                 width = 6f;
                                 height = 10f;
                                 selfDamage = 5f;
-                                homingPower = 0.5f;
+                                homingPower = 0.2f;
                                 pierce = true;
                                 pierceBuilding = true;
                                 pierceArmor = true;
