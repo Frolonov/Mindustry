@@ -50,7 +50,7 @@ public class FighterAI extends AIController{
 
             for(var flag : unit.type.targetFlags){
                 if(flag == null){
-                    Teamc result = bestTarget(x, y, range, air, ground);
+                    Teamc result = Units.bestTarget(x, y, range, air, ground);
                     if(result != null) return result;
                 }else if(ground){
                     Teamc result = targetFlag(x, y, flag, true);
