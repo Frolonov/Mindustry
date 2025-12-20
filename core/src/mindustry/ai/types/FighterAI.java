@@ -10,14 +10,13 @@ import static mindustry.Vars.*;
 import static mindustry.world.meta.BlockFlag.*;
 
 public class FighterAI extends AIController{
-    final static Rand rand = new Rand();
 
     @Override
     public void updateMovement(){
 
         if(target != null && unit.hasWeapons()){
             if(unit.type.circleTarget){
-                circleAttack(160f);
+                circleAttack(88f);
             }else{
                 moveTo(target, unit.type.range * 0.8f);
                 unit.lookAt(target);
