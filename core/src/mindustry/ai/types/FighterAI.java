@@ -4,7 +4,9 @@ import arc.math.*;
 import mindustry.entities.Units.*;
 import mindustry.entities.units.*;
 import mindustry.game.*;
+import mindustry.game.Teams.*;
 import mindustry.gen.*;
+import mindustry.type.*;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
