@@ -70,6 +70,8 @@ public class Weapon implements Cloneable{
     public boolean useAttackRange = true;
     /** ticks to wait in-between targets */
     public float targetInterval = 40f, targetSwitchInterval = 70f;
+    /** additional range for targetting only */
+    public float aimExtension = 0f;
     /** rotation speed of weapon when rotation is enabled, in degrees/t*/
     public float rotateSpeed = 20f;
     /** weapon reload in frames */
@@ -310,18 +312,18 @@ public class Weapon implements Cloneable{
         //find a new target
         if(!controllable && autoTarget){
             if((mount.retarget -= Time.delta) <= 0f){
-                mount.target = findTarget(unit, mountX, mountY, bullet.range, bullet.collidesAir, bullet.collidesGround);
+                mount.target = findTarget(unit, mountX, mountY, bullet.range + aimExtension, bullet.collidesAir, bullet.collidesGround);
                 mount.retarget = mount.target == null ? targetInterval : targetSwitchInterval;
             }
 
-            if(mount.target != null && checkTarget(unit, mount.target, mountX, mountY, bullet.range)){
+            if(mount.target != null && checkTarget(unit, mount.target, mountX, mountY, bullet.range + aimExtension)){
                 mount.target = null;
             }
 
             boolean shoot = false;
 
             if(mount.target != null){
-                shoot = mount.target.within(mountX, mountY, bullet.range + Math.abs(shootY) + (mount.target instanceof Sized s ? s.hitSize()/2f : 0f)) && can;
+                shoot = mount.target.within(mountX, mountY, bullet.range + aimExtension + Math.abs(shootY) + (mount.target instanceof Sized s ? s.hitSize()/2f : 0f)) && can;
 
                 if(predictTarget){
                     Vec2 to = Predict.intercept(unit, mount.target, bullet);
@@ -438,11 +440,11 @@ public class Weapon implements Cloneable{
     }
 
     protected Teamc findTarget(Unit unit, float x, float y, float range, boolean air, boolean ground){
-        return Units.closestTarget(unit.team, x, y, range + Math.abs(shootY), u -> u.checkTarget(air, ground), t -> ground && (unit.type.targetUnderBlocks || !t.block.underBullets));
+        return Units.closestTarget(unit.team, x, y, range + Math.abs(shootY) + aimExtension, u -> u.checkTarget(air, ground), t -> ground && (unit.type.targetUnderBlocks || !t.block.underBullets));
     }
 
     protected boolean checkTarget(Unit unit, Teamc target, float x, float y, float range){
-        return Units.invalidateTarget(target, unit.team, x, y, range + Math.abs(shootY));
+        return Units.invalidateTarget(target, unit.team, x, y, range + Math.abs(shootY) + aimExtension);
     }
 
     protected float bulletRotation(Unit unit, WeaponMount mount, float bulletX, float bulletY){
